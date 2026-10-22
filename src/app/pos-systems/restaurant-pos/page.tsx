@@ -34,29 +34,29 @@ export default function RestaurantPOSPage() {
             HOSPITALITY COMMERCE
           </span>
 
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
             Restaurant & Pub EPOS <br />
             <span className="text-brand-accent">Engineered for Fast Service</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Eliminate server delays, kitchen errors, and payment bottlenecks. Seamlessly synchronize order taking, kitchen display systems, and handheld Shift4 One payment devices.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 pt-2">
+          <div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
             <Link
               href="/get-quote"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-6 sm:px-7 py-3.5 min-h-[44px] text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all w-full sm:w-auto text-center"
             >
               <span>Get Restaurant POS Quote</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 flex-shrink-0" />
             </Link>
             <Link
               href="/online-ordering"
-              className="inline-flex items-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-6 py-3.5 text-sm font-semibold text-emerald-300 hover:bg-emerald-500/20 transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-emerald-500/40 bg-emerald-500/10 px-5 sm:px-6 py-3.5 min-h-[44px] text-sm font-semibold text-emerald-300 hover:bg-emerald-500/20 transition-all w-full sm:w-auto text-center"
             >
               <span>0% Commission Online Ordering</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 flex-shrink-0" />
             </Link>
           </div>
         </div>

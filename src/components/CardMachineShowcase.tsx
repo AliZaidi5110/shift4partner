@@ -74,13 +74,13 @@ export function CardMachineShowcase() {
                 priority
               />
 
-              {/* Floating feature pills */}
-              <div className="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md border border-white/20 rounded-xl px-3.5 py-1.5 shadow-lg flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-xs font-bold text-white">Live On-Screen Receipt Print</span>
+              {/* Floating feature pills - Scaled to stay safely inside the frame on all screens */}
+              <div className="absolute top-2.5 left-2.5 sm:top-4 sm:left-4 bg-slate-900/95 backdrop-blur-md border border-white/20 rounded-lg sm:rounded-xl px-2.5 sm:px-3.5 py-1 sm:py-1.5 shadow-lg flex items-center gap-1.5 sm:gap-2 max-w-[80%]">
+                <span className="h-1.5 sm:h-2 w-1.5 sm:w-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
+                <span className="text-[10px] sm:text-xs font-bold text-white truncate">Live On-Screen Receipt Print</span>
               </div>
 
-              <div className="absolute bottom-4 right-4 bg-brand-blue/90 backdrop-blur-md border border-brand-accent/30 rounded-xl px-4 py-2 shadow-lg text-xs font-bold text-white">
+              <div className="absolute bottom-2.5 right-2.5 sm:bottom-4 sm:right-4 bg-brand-blue/95 backdrop-blur-md border border-brand-accent/30 rounded-lg sm:rounded-xl px-2.5 sm:px-4 py-1 sm:py-2 shadow-lg text-[10px] sm:text-xs font-bold text-white">
                 Zero Monthly Rental*
               </div>
             </div>
@@ -101,12 +101,12 @@ export function CardMachineShowcase() {
               </p>
             </div>
 
-            {/* Specs Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Specs Grid: 1 col on mobile, 2 col on sm */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {specs.map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <div key={index} className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
+                  <div key={index} className="p-3 sm:p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-colors">
                     <div className="flex items-center gap-2.5 mb-1.5">
                       <Icon className="h-4 w-4 text-brand-accent flex-shrink-0" />
                       <h4 className="text-sm font-bold text-white">{item.title}</h4>
@@ -117,12 +117,12 @@ export function CardMachineShowcase() {
               })}
             </div>
 
-            {/* Included in the Box list */}
+            {/* Included in the Box list: 2x2 grid on mobile */}
             <div className="p-4 rounded-xl bg-brand-navySurface/50 border border-blue-500/20 space-y-2">
               <h4 className="text-xs font-bold uppercase tracking-wider text-brand-accent">
                 What&apos;s Included In Your Package:
               </h4>
-              <div className="grid grid-cols-2 gap-2 text-xs text-slate-300">
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-2 text-xs text-slate-300">
                 <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 flex-shrink-0" />
                   <span>Shift4 One Smart Terminal</span>
@@ -143,11 +143,11 @@ export function CardMachineShowcase() {
             </div>
 
             {/* CTA */}
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <Link
                 href="/get-quote"
                 onClick={() => trackCTAClick("Get My Free Quote", "CardMachineShowcase")}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/40 hover:from-blue-600 hover:to-brand-blue transition-all"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-7 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/40 hover:from-blue-600 hover:to-brand-blue transition-all w-full sm:w-auto min-h-[44px]"
               >
                 <span>Get My Free Quote</span>
                 <ArrowRight className="h-4 w-4" />
@@ -155,7 +155,7 @@ export function CardMachineShowcase() {
 
               <Link
                 href="/card-machines/shift4-one"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-white/5 px-5 py-3.5 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-white/5 px-5 py-3.5 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-colors w-full sm:w-auto min-h-[44px]"
               >
                 View Full Specifications
               </Link>

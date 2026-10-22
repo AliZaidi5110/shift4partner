@@ -55,60 +55,60 @@ export default function Shift4OnePage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-[#060E1C] via-[#0A1A33] to-[#08152B] py-16 sm:py-24 border-b border-white/5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             <div className="lg:col-span-7 space-y-6">
               <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-blue/20 border border-brand-accent/30 px-3 py-1 rounded-full">
                 FLAGSHIP SMART TERMINAL
               </span>
 
-              <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight uppercase">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight uppercase">
                 ONE CARD MACHINE <br />
                 <span className="text-brand-accent">ZERO MONTHLY RENTAL*</span>
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl">
                 The smart payment terminal built to give UK small and medium businesses complete freedom from expensive monthly terminal hire. Roaming 4G, built-in thermal receipts, and lightning-fast sub-second approvals.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
                 <Link
                   href="/get-quote"
-                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-7 py-4 text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-6 sm:px-7 py-3.5 sm:py-4 min-h-[44px] text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all w-full sm:w-auto text-center"
                 >
                   <span>Request Free Terminal Quote</span>
-                  <ArrowRight className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4 flex-shrink-0" />
                 </Link>
 
                 <a
                   href="#specs-table"
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-white/5 px-6 py-4 text-sm font-semibold text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-white/5 px-5 sm:px-6 py-3.5 sm:py-4 min-h-[44px] text-sm font-semibold text-slate-300 hover:bg-white/10 hover:text-white transition-colors w-full sm:w-auto text-center"
                 >
                   View Technical Specs
                 </a>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 pt-4 border-t border-white/10 text-xs text-slate-300">
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 pt-4 border-t border-white/10 text-xs sm:text-sm text-slate-300">
                 <div className="flex items-center gap-2">
-                  <div className="h-4 w-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                  <div className="h-4 w-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">
                     <Check className="h-3 w-3 stroke-[3]" />
                   </div>
                   <span>Free terminal offer available*</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="h-4 w-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                  <div className="h-4 w-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">
                     <Check className="h-3 w-3 stroke-[3]" />
                   </div>
                   <span>Next-day UK express dispatch</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="h-4 w-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                  <div className="h-4 w-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">
                     <Check className="h-3 w-3 stroke-[3]" />
                   </div>
                   <span>Multi-network 4G SIM pre-installed</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="h-4 w-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                  <div className="h-4 w-4 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">
                     <Check className="h-3 w-3 stroke-[3]" />
                   </div>
                   <span>7-Day UK merchant phone support</span>
@@ -116,7 +116,7 @@ export default function Shift4OnePage() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 flex justify-center">
+            <div className="lg:col-span-5 flex justify-center w-full overflow-hidden">
               <DeviceMockup />
             </div>
 

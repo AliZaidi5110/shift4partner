@@ -35,19 +35,19 @@ export function SearchCommand() {
   return (
     <>
       {/* Floating AI-style search bar pill at bottom of hero / page */}
-      <div className="relative mx-auto max-w-xl px-4 -mt-6 sm:-mt-8 mb-12 z-20">
+      <div className="relative mx-auto max-w-xl px-3 sm:px-4 -mt-6 sm:-mt-8 mb-12 z-20">
         <div
           onClick={() => setOpen(true)}
-          className="group cursor-pointer rounded-2xl bg-[#0F2247]/90 border border-blue-500/40 p-2 sm:p-2.5 shadow-[0_15px_35px_rgba(0,0,0,0.6)] backdrop-blur-xl flex items-center justify-between gap-3 hover:border-brand-accent transition-all"
+          className="group cursor-pointer rounded-2xl bg-[#0F2247]/95 border border-blue-500/40 p-2 sm:p-2.5 shadow-[0_15px_35px_rgba(0,0,0,0.6)] backdrop-blur-xl flex items-center justify-between gap-2 sm:gap-3 hover:border-brand-accent transition-all min-h-[44px]"
         >
-          <div className="flex items-center gap-3 pl-3 text-slate-300">
-            <Search className="h-4 w-4 text-brand-accent group-hover:scale-110 transition-transform" />
-            <span className="text-xs sm:text-sm text-slate-300">
-              Explore solutions... <span className="text-brand-accent font-medium">e.g. &apos;EPOS for restaurants&apos; or &apos;Zero rental&apos;</span>
+          <div className="flex items-center gap-2.5 sm:gap-3 pl-2 sm:pl-3 text-slate-300 min-w-0">
+            <Search className="h-4 w-4 text-brand-accent group-hover:scale-110 transition-transform flex-shrink-0" />
+            <span className="text-xs sm:text-sm text-slate-300 truncate">
+              Explore solutions... <span className="hidden xs:inline text-brand-accent font-medium">e.g. &apos;EPOS for restaurants&apos;</span>
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
             <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-brand-accent bg-brand-blue/20 border border-brand-accent/20 px-2 py-0.5 rounded-md">
               <Sparkles className="h-3 w-3" /> Quick Search
             </span>
@@ -60,11 +60,11 @@ export function SearchCommand() {
 
       {/* Spotlight Command Modal */}
       {open && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center pt-24 px-4 bg-black/80 backdrop-blur-md animate-fade-in">
+        <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 px-3 sm:px-4 bg-black/80 backdrop-blur-md animate-fade-in">
           <div className="relative w-full max-w-lg rounded-2xl bg-[#091529] border border-blue-500/50 shadow-2xl overflow-hidden text-white">
             
             {/* Search Input */}
-            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/10">
+            <div className="flex items-center gap-3 px-3.5 sm:px-4 py-3 sm:py-3.5 border-b border-white/10 min-h-[48px]">
               <Search className="h-5 w-5 text-brand-accent flex-shrink-0" />
               <input
                 type="text"
@@ -72,12 +72,13 @@ export function SearchCommand() {
                 placeholder="Type a product, feature, sector or city..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="w-full bg-transparent text-sm text-white placeholder-slate-400 focus:outline-none"
+                className="w-full bg-transparent text-base sm:text-sm text-white placeholder-slate-400 focus:outline-none"
               />
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="p-1 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white"
+                className="p-1.5 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
+                aria-label="Close search modal"
               >
                 <X className="h-5 w-5" />
               </button>

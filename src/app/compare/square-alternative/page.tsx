@@ -62,7 +62,7 @@ export default function SquareAlternativePage() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight mb-6">
             Looking for a <span className="bg-gradient-to-r from-brand-accent via-cyan-400 to-blue-400 bg-clip-text text-transparent">Square Alternative?</span>
           </h1>
 
@@ -74,7 +74,7 @@ export default function SquareAlternativePage() {
             <Link
               href="/get-quote"
               onClick={() => trackCTAClick("Square Alternative Free Quote", "Hero")}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-8 py-4 text-base font-bold text-white shadow-[0_10px_30px_rgba(30,107,255,0.4)] hover:shadow-[0_15px_40px_rgba(30,107,255,0.6)] transition-all"
+              className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-8 py-3.5 text-base font-bold text-white shadow-[0_10px_30px_rgba(30,107,255,0.4)] hover:shadow-[0_15px_40px_rgba(30,107,255,0.6)] transition-all"
             >
               <span>Claim Your Free Card Machine</span>
               <ArrowRight className="h-4 w-4" />
@@ -83,7 +83,7 @@ export default function SquareAlternativePage() {
             <a
               href={`tel:${siteConfig.phoneRaw}`}
               onClick={() => trackPhoneClick("Square Alternative Hero Phone")}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-white/5 backdrop-blur-md px-6 py-4 text-base font-semibold text-slate-200 hover:bg-white/10 hover:text-white transition-all"
+              className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-white/5 backdrop-blur-md px-6 py-3.5 text-base font-semibold text-slate-200 hover:bg-white/10 hover:text-white transition-all"
             >
               <PhoneCall className="h-4 w-4 text-emerald-400" />
               <span>Call UK Team: {siteConfig.phone}</span>
@@ -172,7 +172,7 @@ export default function SquareAlternativePage() {
               <Link
                 href="/get-quote"
                 onClick={() => trackCTAClick("Save With Shift4 Calculator", "Square Alternative")}
-                className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 px-6 py-3 text-sm font-bold text-slate-950 shadow-lg shadow-emerald-500/20 transition-all"
+                className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 px-6 py-3.5 text-sm font-bold text-slate-950 shadow-lg shadow-emerald-500/20 transition-all"
               >
                 <span>Lock In 1.25% Rate with Free Terminal</span>
                 <ArrowRight className="h-4 w-4" />
@@ -183,13 +183,13 @@ export default function SquareAlternativePage() {
       </section>
 
       {/* Side-by-Side Detailed Comparison Table */}
-      <section className="bg-[#060E1C] py-20 border-b border-white/5">
+      <section className="bg-[#060E1C] py-16 sm:py-20 border-b border-white/5">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-blue/20 px-3 py-1 rounded-full border border-brand-accent/20">
               FEATURE BY FEATURE
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-white mt-3">
+            <h2 className="text-2xl sm:text-4xl font-black text-white mt-3">
               Shift4 One vs Square Card Reader
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 mt-2">
@@ -197,36 +197,45 @@ export default function SquareAlternativePage() {
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-white/10 shadow-2xl">
-            <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-[#0A1A33] border-b border-white/10 text-white font-bold">
-                <tr>
-                  <th className="py-4 px-4 sm:px-6">Feature / Capability</th>
-                  <th className="py-4 px-4 sm:px-6 bg-brand-blue/20 text-brand-accent border-x border-white/10">
-                    Shift4 One (Eposify)
-                  </th>
-                  <th className="py-4 px-4 sm:px-6 text-slate-300">
-                    Square
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/5 bg-slate-900/60 text-slate-200">
-                {comparisonRows.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-white/5 transition-colors">
-                    <td className="py-4 px-4 sm:px-6 font-semibold text-white">
-                      {row.feature}
-                    </td>
-                    <td className="py-4 px-4 sm:px-6 bg-brand-blue/10 border-x border-white/10 font-bold text-white flex items-center gap-2">
-                      <Check className="h-4 w-4 text-emerald-400 flex-shrink-0" />
-                      <span>{row.shift4}</span>
-                    </td>
-                    <td className="py-4 px-4 sm:px-6 text-slate-400">
-                      {row.square}
-                    </td>
+          <div className="relative rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
+            {/* Mobile scroll hint */}
+            <div className="sm:hidden px-4 py-2 bg-slate-800/80 border-b border-white/5 text-[11px] text-slate-400 flex items-center justify-between">
+              <span>Scroll horizontally to view comparison</span>
+              <span className="text-brand-accent font-semibold">Swipe →</span>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[500px] text-left text-xs sm:text-sm">
+                <thead className="bg-[#0A1A33] border-b border-white/10 text-white font-bold">
+                  <tr>
+                    <th className="py-4 px-4 sm:px-6">Feature / Capability</th>
+                    <th className="py-4 px-4 sm:px-6 bg-brand-blue/20 text-brand-accent border-x border-white/10">
+                      Shift4 One (Eposify)
+                    </th>
+                    <th className="py-4 px-4 sm:px-6 text-slate-300">
+                      Square
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-white/5 bg-slate-900/60 text-slate-200">
+                  {comparisonRows.map((row, idx) => (
+                    <tr key={idx} className="hover:bg-white/5 transition-colors">
+                      <td className="py-4 px-4 sm:px-6 font-semibold text-white">
+                        {row.feature}
+                      </td>
+                      <td className="py-4 px-4 sm:px-6 bg-brand-blue/10 border-x border-white/10 font-bold text-white">
+                        <div className="flex items-center gap-2">
+                          <Check className="h-4 w-4 text-emerald-400 flex-shrink-0" />
+                          <span>{row.shift4}</span>
+                        </div>
+                      </td>
+                      <td className="py-4 px-4 sm:px-6 text-slate-400">
+                        {row.square}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
@@ -247,7 +256,7 @@ export default function SquareAlternativePage() {
 
           <Link
             href="/get-quote"
-            className="inline-flex items-center gap-2.5 rounded-xl bg-white hover:bg-slate-100 px-7 py-3.5 text-sm font-bold text-slate-900 shadow-xl transition-all"
+            className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2.5 rounded-xl bg-white hover:bg-slate-100 px-7 py-3.5 text-sm font-bold text-slate-900 shadow-xl transition-all"
           >
             <span>Request Free Statement Analysis</span>
             <ArrowRight className="h-4 w-4" />

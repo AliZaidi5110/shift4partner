@@ -21,7 +21,7 @@ export default function BlogListingPage() {
           <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-blue/20 border border-brand-accent/30 px-3 py-1 rounded-full">
             MERCHANT ADVICE & INDUSTRY INSIGHTS
           </span>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
             The UK Card Payments & EPOS Blog
           </h1>
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
@@ -69,7 +69,7 @@ export default function BlogListingPage() {
 
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-brand-accent group-hover:translate-x-1 transition-transform"
+                    className="min-h-[44px] inline-flex items-center gap-1 text-xs font-bold text-brand-accent group-hover:translate-x-1 transition-transform"
                   >
                     <span>Read Article</span>
                     <ArrowRight className="h-3.5 w-3.5" />

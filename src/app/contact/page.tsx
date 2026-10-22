@@ -21,7 +21,7 @@ export default function ContactPage() {
             WE ARE HERE TO HELP
           </span>
 
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
             Contact Our UK <span className="text-brand-accent">Payment Specialists</span>
           </h1>
 
@@ -37,53 +37,65 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             {/* Phone */}
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-700/80 text-center">
-              <div className="h-12 w-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4">
-                <Phone className="h-6 w-6" />
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-700/80 text-center flex flex-col justify-between">
+              <div>
+                <div className="h-12 w-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4">
+                  <Phone className="h-6 w-6" />
+                </div>
+                <h3 className="text-base font-bold text-white mb-1">Telephone Support</h3>
+                <p className="text-xs text-slate-400 mb-3">Speak with an advisor directly</p>
               </div>
-              <h3 className="text-base font-bold text-white mb-1">Telephone Support</h3>
-              <p className="text-xs text-slate-400 mb-3">Speak with an advisor directly</p>
-              <a
-                href={`tel:${siteConfig.phoneRaw}`}
-                className="text-base font-bold text-emerald-400 hover:underline block"
-              >
-                {siteConfig.phone}
-              </a>
-              <span className="text-[11px] text-emerald-400 font-semibold block mt-1">24/7 UK Customer Support & Emergency Assistance</span>
+              <div>
+                <a
+                  href={`tel:${siteConfig.phoneRaw}`}
+                  className="min-h-[44px] flex items-center justify-center text-base font-bold text-emerald-400 hover:underline"
+                >
+                  {siteConfig.phone}
+                </a>
+                <span className="text-[11px] text-emerald-400 font-semibold block mt-1">24/7 UK Customer Support & Emergency Assistance</span>
+              </div>
             </div>
 
             {/* WhatsApp */}
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-700/80 text-center">
-              <div className="h-12 w-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4">
-                <MessageCircle className="h-6 w-6" />
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-700/80 text-center flex flex-col justify-between">
+              <div>
+                <div className="h-12 w-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4">
+                  <MessageCircle className="h-6 w-6" />
+                </div>
+                <h3 className="text-base font-bold text-white mb-1">WhatsApp Business</h3>
+                <p className="text-xs text-slate-400 mb-3">Quick questions & quote checks</p>
               </div>
-              <h3 className="text-base font-bold text-white mb-1">WhatsApp Business</h3>
-              <p className="text-xs text-slate-400 mb-3">Quick questions & quote checks</p>
-              <a
-                href={`https://wa.me/${siteConfig.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-base font-bold text-emerald-400 hover:underline block"
-              >
-                Start WhatsApp Chat ({siteConfig.whatsappFormatted})
-              </a>
-              <span className="text-[11px] text-emerald-400 font-semibold block mt-1">24/7 Direct WhatsApp Support</span>
+              <div>
+                <a
+                  href={`https://wa.me/${siteConfig.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-h-[44px] flex items-center justify-center text-sm sm:text-base font-bold text-emerald-400 hover:underline break-words"
+                >
+                  Start WhatsApp Chat ({siteConfig.whatsappFormatted})
+                </a>
+                <span className="text-[11px] text-emerald-400 font-semibold block mt-1">24/7 Direct WhatsApp Support</span>
+              </div>
             </div>
 
             {/* Email */}
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-700/80 text-center">
-              <div className="h-12 w-12 rounded-xl bg-brand-blue/20 text-brand-accent flex items-center justify-center mx-auto mb-4">
-                <Mail className="h-6 w-6" />
+            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-700/80 text-center flex flex-col justify-between">
+              <div>
+                <div className="h-12 w-12 rounded-xl bg-brand-blue/20 text-brand-accent flex items-center justify-center mx-auto mb-4">
+                  <Mail className="h-6 w-6" />
+                </div>
+                <h3 className="text-base font-bold text-white mb-1">Email Enquiries</h3>
+                <p className="text-xs text-slate-400 mb-3">Rate reviews & quotations</p>
               </div>
-              <h3 className="text-base font-bold text-white mb-1">Email Enquiries</h3>
-              <p className="text-xs text-slate-400 mb-3">Rate reviews & quotations</p>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="text-base font-bold text-brand-accent hover:underline block"
-              >
-                {siteConfig.email}
-              </a>
-              <span className="text-[11px] text-slate-500 block mt-1">Same business day response</span>
+              <div>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="min-h-[44px] flex items-center justify-center text-sm sm:text-base font-bold text-brand-accent hover:underline break-all"
+                >
+                  {siteConfig.email}
+                </a>
+                <span className="text-[11px] text-slate-500 block mt-1">Same business day response</span>
+              </div>
             </div>
 
           </div>

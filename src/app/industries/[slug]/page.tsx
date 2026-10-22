@@ -84,7 +84,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                 INDUSTRY PAYMENT SOLUTIONS
               </span>
 
-              <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
                 {industry.heroHeadline}
               </h1>
 
@@ -102,10 +102,10 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
                 <Link
                   href="/get-quote"
-                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all"
+                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all"
                 >
                   <span>Get Quote for {industry.shortTitle}</span>
                   <ArrowRight className="h-4 w-4" />
@@ -113,7 +113,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
 
                 <Link
                   href="/card-machines/shift4-one"
-                  className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-white/5 px-6 py-3.5 text-sm font-semibold text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
+                  className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-white/5 px-6 py-3.5 text-sm font-semibold text-slate-300 hover:bg-white/10 hover:text-white transition-colors"
                 >
                   Explore Shift4 One Specs
                 </Link>
@@ -177,7 +177,7 @@ export default async function IndustryPage({ params }: IndustryPageProps) {
                   <Link
                     key={other.slug}
                     href={`/industries/${other.slug}`}
-                    className="bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white px-3 py-1.5 rounded-lg border border-slate-800 transition-colors"
+                    className="min-h-[44px] inline-flex items-center bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white px-3.5 py-2 rounded-lg border border-slate-800 transition-colors"
                   >
                     {other.shortTitle}
                   </Link>

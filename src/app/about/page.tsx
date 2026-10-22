@@ -24,7 +24,7 @@ export default function AboutPage() {
             ABOUT OUR MISSION
           </span>
 
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
             Championing Fair, Modern Card Payments for <span className="text-brand-accent">UK Merchants</span>
           </h1>
 

@@ -39,7 +39,7 @@ export default function IntegrationsPage() {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight mb-6">
             Connect Shift4 to <span className="bg-gradient-to-r from-cyan-400 via-brand-accent to-blue-500 bg-clip-text text-transparent">Every Food Delivery</span> & Accounting Platform
           </h1>
 
@@ -50,7 +50,7 @@ export default function IntegrationsPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/get-quote"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-7 py-4 text-base font-bold text-white shadow-[0_10px_30px_rgba(30,107,255,0.4)] hover:shadow-[0_15px_40px_rgba(30,107,255,0.6)] transition-all"
+              className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-7 py-3.5 text-base font-bold text-white shadow-[0_10px_30px_rgba(30,107,255,0.4)] hover:shadow-[0_15px_40px_rgba(30,107,255,0.6)] transition-all"
             >
               <span>Connect Your Platforms</span>
               <ArrowRight className="h-4 w-4" />
@@ -58,7 +58,7 @@ export default function IntegrationsPage() {
 
             <a
               href={`tel:${siteConfig.phoneRaw}`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-white/5 backdrop-blur-md px-6 py-4 text-base font-semibold text-slate-200 hover:bg-white/10 hover:text-white transition-all"
+              className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-white/5 backdrop-blur-md px-6 py-3.5 text-base font-semibold text-slate-200 hover:bg-white/10 hover:text-white transition-all"
             >
               <PhoneCall className="h-4 w-4 text-emerald-400" />
               <span>Speak to an Integration Specialist</span>
@@ -78,7 +78,7 @@ export default function IntegrationsPage() {
       <section className="bg-[#050C18] py-20 border-t border-white/5">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
               Why Multi-Tablet Juggling Costs You Money
             </h2>
             <p className="text-sm sm:text-base text-slate-300">

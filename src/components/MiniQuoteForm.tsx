@@ -106,45 +106,47 @@ export function MiniQuoteForm({ source = "hero_mini_form", className = "" }: Min
         />
 
         <div>
-          <label className="block text-xs font-medium text-slate-300 mb-1" htmlFor="mini-name">
+          <label className="block text-xs font-semibold text-slate-300 mb-1" htmlFor="mini-name">
             Your Name / Business Contact *
           </label>
           <input
             id="mini-name"
             type="text"
             required
+            autoComplete="name"
             placeholder="e.g. Sarah Jenkins"
             value={formData.fullName}
             onChange={(e) => {
               setFormData({ ...formData, fullName: e.target.value });
               if (errors.fullName) setErrors({ ...errors, fullName: "" });
             }}
-            className={`w-full rounded-xl bg-slate-900/80 border ${errors.fullName ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 transition-all`}
+            className={`w-full rounded-xl bg-slate-900/90 border ${errors.fullName ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-3.5 py-2.5 text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 transition-all min-h-[44px]`}
           />
           {errors.fullName && <p className="text-red-400 text-[11px] mt-1">{errors.fullName}</p>}
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-slate-300 mb-1" htmlFor="mini-phone">
+          <label className="block text-xs font-semibold text-slate-300 mb-1" htmlFor="mini-phone">
             UK Phone Number *
           </label>
           <input
             id="mini-phone"
             type="tel"
             required
+            autoComplete="tel"
             placeholder="e.g. 07123 456789 or 020 7946 0192"
             value={formData.phone}
             onChange={(e) => {
               setFormData({ ...formData, phone: e.target.value });
               if (errors.phone) setErrors({ ...errors, phone: "" });
             }}
-            className={`w-full rounded-xl bg-slate-900/80 border ${errors.phone ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-3.5 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 transition-all`}
+            className={`w-full rounded-xl bg-slate-900/90 border ${errors.phone ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-3.5 py-2.5 text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 transition-all min-h-[44px]`}
           />
           {errors.phone && <p className="text-red-400 text-[11px] mt-1">{errors.phone}</p>}
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-slate-300 mb-1" htmlFor="mini-business">
+          <label className="block text-xs font-semibold text-slate-300 mb-1" htmlFor="mini-business">
             Business Type *
           </label>
           <select
@@ -155,7 +157,7 @@ export function MiniQuoteForm({ source = "hero_mini_form", className = "" }: Min
               setFormData({ ...formData, businessType: e.target.value });
               if (errors.businessType) setErrors({ ...errors, businessType: "" });
             }}
-            className={`w-full rounded-xl bg-slate-900/80 border ${errors.businessType ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-3.5 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40 transition-all`}
+            className={`w-full rounded-xl bg-slate-900/90 border ${errors.businessType ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-3.5 py-2.5 text-base sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40 transition-all min-h-[44px]`}
           >
             <option value="" disabled className="text-slate-500">
               Select business category...
@@ -177,7 +179,7 @@ export function MiniQuoteForm({ source = "hero_mini_form", className = "" }: Min
         <button
           type="submit"
           disabled={loading}
-          className="w-full mt-2 group relative inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 hover:from-blue-600 hover:to-brand-blue px-5 py-3 text-sm font-bold text-white shadow-[0_4px_20px_rgba(30,107,255,0.4)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 cursor-pointer"
+          className="w-full mt-2 group relative inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 hover:from-blue-600 hover:to-brand-blue px-5 py-3.5 text-sm font-bold text-white shadow-[0_4px_20px_rgba(30,107,255,0.4)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 cursor-pointer min-h-[44px]"
         >
           {loading ? (
             <>

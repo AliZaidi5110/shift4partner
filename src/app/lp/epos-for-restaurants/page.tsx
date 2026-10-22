@@ -27,7 +27,7 @@ export default function RestaurantEPOSLandingPage() {
 
           <a
             href={`tel:${siteConfig.phoneRaw}`}
-            className="flex items-center gap-2 rounded-xl bg-emerald-500/20 border border-emerald-400/30 px-3.5 py-2 text-xs font-bold text-emerald-400 hover:bg-emerald-500/30 transition-colors"
+            className="min-h-[44px] flex items-center gap-2 rounded-xl bg-emerald-500/20 border border-emerald-400/30 px-3.5 py-2 text-xs font-bold text-emerald-400 hover:bg-emerald-500/30 transition-colors"
           >
             <Phone className="h-3.5 w-3.5" />
             <span>Call: {siteConfig.phone}</span>
@@ -43,7 +43,7 @@ export default function RestaurantEPOSLandingPage() {
                 <Sparkles className="h-3.5 w-3.5" /> Restaurant EPOS Special Offer
               </span>
 
-              <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
                 Turn Tables 25% Faster with <br />
                 <span className="text-brand-accent">Shift4 Restaurant EPOS</span>
               </h1>

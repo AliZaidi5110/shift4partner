@@ -39,7 +39,7 @@ export function ExitIntentModal() {
         <button
           type="button"
           onClick={() => setIsOpen(false)}
-          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white rounded-full bg-slate-900/60 border border-white/10 transition-colors"
+          className="absolute top-4 right-4 min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-slate-400 hover:text-white rounded-full bg-slate-900/60 border border-white/10 transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <X className="h-4 w-4" />
@@ -50,7 +50,7 @@ export function ExitIntentModal() {
             <Sparkles className="h-3.5 w-3.5" /> Exclusive Free Terminal Offer*
           </span>
 
-          <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-2">
+          <h3 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight mb-2">
             Before You Leave: Stop Paying Monthly Terminal Rental
           </h3>
 
@@ -60,15 +60,15 @@ export function ExitIntentModal() {
 
           <div className="p-4 rounded-2xl bg-slate-900/70 border border-slate-700/80 mb-6 text-left space-y-2 text-xs text-slate-300">
             <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
               <span>£0 monthly card machine rental fee*</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
               <span>Multi-network 4G roaming included*</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
               <span>No-obligation free rate comparison</span>
             </div>
           </div>
@@ -80,16 +80,16 @@ export function ExitIntentModal() {
                 setIsOpen(false);
                 trackCTAClick("Claim Free Quote Offer", "Exit Intent Modal");
               }}
-              className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all"
+              className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-6 py-3.5 min-h-[44px] text-sm font-bold text-white shadow-lg shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all"
             >
               <span>Claim Free Quote Now</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 flex-shrink-0" />
             </Link>
 
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="w-full sm:w-auto px-4 py-3 text-xs font-semibold text-slate-400 hover:text-white"
+              className="w-full sm:w-auto px-4 py-3 min-h-[44px] inline-flex items-center justify-center text-xs font-semibold text-slate-400 hover:text-white cursor-pointer"
             >
               No thanks, I will keep paying rent
             </button>

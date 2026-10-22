@@ -20,7 +20,6 @@ export const viewport: Viewport = {
   themeColor: "#0A1A33",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5,
 };
 
 export const metadata: Metadata = {
@@ -101,9 +100,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-[#060E1C] text-slate-100 antialiased">
+      <body className="min-h-[100svh] flex flex-col bg-[#060E1C] text-slate-100 antialiased">
         <Navbar />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow pb-16 sm:pb-0">{children}</main>
         <Footer />
 
         {/* Global Conversion & Compliance Overlays */}

@@ -30,7 +30,7 @@ export default function ZeroRentalLandingPage() {
 
           <a
             href={`tel:${siteConfig.phoneRaw}`}
-            className="flex items-center gap-2 rounded-xl bg-emerald-500/20 border border-emerald-400/30 px-3.5 py-2 text-xs font-bold text-emerald-400 hover:bg-emerald-500/30 transition-colors"
+            className="min-h-[44px] flex items-center gap-2 rounded-xl bg-emerald-500/20 border border-emerald-400/30 px-3.5 py-2 text-xs font-bold text-emerald-400 hover:bg-emerald-500/30 transition-colors"
           >
             <Phone className="h-3.5 w-3.5" />
             <span>Call: {siteConfig.phone}</span>
@@ -48,7 +48,7 @@ export default function ZeroRentalLandingPage() {
                 <Sparkles className="h-3.5 w-3.5" /> UK Merchant Exclusive Promotion
               </span>
 
-              <h1 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
                 Stop Paying Monthly Card Machine Rental. <br />
                 <span className="text-brand-accent">Get Shift4 One with £0 Monthly Hire*.</span>
               </h1>

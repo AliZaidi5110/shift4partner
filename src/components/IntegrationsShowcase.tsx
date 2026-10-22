@@ -196,55 +196,57 @@ export function IntegrationsShowcase() {
         </div>
 
         {/* Interactive Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-          {[
-            { id: "all", label: "All Integrations" },
-            { id: "delivery", label: "Food Delivery Apps (Deliveroo, Just Eat, Uber)" },
-            { id: "fleet", label: "Fleet & Aggregators (Stuart, Supy)" },
-            { id: "accounting", label: "Accounting & Tax (Xero, QuickBooks)" },
-          ].map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id as any)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
-                activeTab === tab.id
-                  ? "bg-brand-blue text-white shadow-[0_4px_15px_rgba(30,107,255,0.4)]"
-                  : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white border border-white/5"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
+        <div className="w-full flex justify-center mb-8 sm:mb-10">
+          <div className="max-w-full overflow-x-auto no-scrollbar inline-flex items-center gap-2 p-1">
+            {[
+              { id: "all", label: "All Integrations" },
+              { id: "delivery", label: "Food Delivery Apps (Deliveroo, Just Eat, Uber)" },
+              { id: "fleet", label: "Fleet & Aggregators (Stuart, Supy)" },
+              { id: "accounting", label: "Accounting & Tax (Xero, QuickBooks)" },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as any)}
+                className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold min-h-[44px] whitespace-nowrap flex-shrink-0 transition-all ${
+                  activeTab === tab.id
+                    ? "bg-brand-blue text-white shadow-[0_4px_15px_rgba(30,107,255,0.4)]"
+                    : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white border border-white/5"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Integrations Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 sm:mb-16">
           {filtered.map((item, idx) => (
             <div
               key={idx}
-              className={`rounded-2xl border border-white/10 bg-gradient-to-b ${item.gradient} p-6 flex flex-col justify-between shadow-xl hover:border-brand-accent/50 transition-all group`}
+              className={`rounded-2xl border border-white/10 bg-gradient-to-b ${item.gradient} p-5 sm:p-6 flex flex-col justify-between shadow-xl hover:border-brand-accent/50 transition-all group`}
             >
               <div>
                 {/* Header: Name + Badge */}
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-black text-white group-hover:text-brand-accent transition-colors">
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-brand-accent transition-colors">
                     {item.name}
                   </h3>
-                  <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full border ${item.tagColor}`}>
+                  <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full border whitespace-nowrap ${item.tagColor}`}>
                     {item.tag}
                   </span>
                 </div>
 
-                <p className="text-sm text-slate-200 font-medium mb-6 leading-snug">
+                <p className="text-sm text-slate-200 font-medium mb-5 sm:mb-6 leading-snug">
                   {item.headline}
                 </p>
 
-                {/* 3 Metric Pills */}
-                <div className="grid grid-cols-3 gap-2 bg-slate-900/80 border border-white/10 rounded-xl p-3 mb-6">
+                {/* 3 Metric Pills - non-overflowing with smaller fonts on mobile */}
+                <div className="grid grid-cols-3 gap-1.5 sm:gap-2 bg-slate-900/80 border border-white/10 rounded-xl p-2.5 sm:p-3 mb-5 sm:mb-6">
                   {item.metrics.map((metric, mIdx) => (
-                    <div key={mIdx} className="text-center">
-                      <div className="text-sm sm:text-base font-black text-white">{metric.value}</div>
-                      <div className="text-[10px] text-slate-400 font-medium leading-tight mt-0.5">{metric.label}</div>
+                    <div key={mIdx} className="text-center overflow-hidden">
+                      <div className="text-xs xs:text-sm sm:text-base font-black text-white break-words">{metric.value}</div>
+                      <div className="text-[9px] sm:text-[10px] text-slate-400 font-medium leading-tight mt-0.5 break-words line-clamp-2">{metric.label}</div>
                     </div>
                   ))}
                 </div>
@@ -254,7 +256,7 @@ export function IntegrationsShowcase() {
                   {item.bulletPoints.map((pt, pIdx) => (
                     <li key={pIdx} className="flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-emerald-400 flex-shrink-0 mt-0.5" />
-                      <span>{pt}</span>
+                      <span className="leading-relaxed">{pt}</span>
                     </li>
                   ))}
                 </ul>
@@ -265,7 +267,7 @@ export function IntegrationsShowcase() {
                 <Link
                   href="/get-quote"
                   onClick={() => trackCTAClick(`Integration ${item.name}`, "Integrations Grid")}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-accent hover:text-white transition-colors group-hover:translate-x-1"
+                  className="inline-flex items-center gap-1.5 min-h-[44px] text-xs sm:text-sm font-bold text-brand-accent hover:text-white transition-colors group-hover:translate-x-1"
                 >
                   <span>Connect {item.name} to Shift4</span>
                   <ChevronRight className="h-3.5 w-3.5" />
@@ -276,12 +278,12 @@ export function IntegrationsShowcase() {
         </div>
 
         {/* 4-Step Process: How Integrations Work */}
-        <div className="bg-[#050C1A] border border-white/10 rounded-3xl p-8 sm:p-12 mb-16 shadow-2xl">
-          <div className="text-center max-w-2xl mx-auto mb-10">
+        <div className="bg-[#050C1A] border border-white/10 rounded-3xl p-5 sm:p-8 lg:p-12 mb-12 sm:mb-16 shadow-2xl">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-blue/20 border border-brand-accent/30 px-3 py-1 rounded-full">
               SIMPLE ONBOARDING
             </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-3">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mt-3">
               How Shift4 Integrations Work in 4 Simple Steps
             </h3>
             <p className="text-xs sm:text-sm text-slate-400 mt-2">
@@ -289,7 +291,7 @@ export function IntegrationsShowcase() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 step: "1",
@@ -312,7 +314,7 @@ export function IntegrationsShowcase() {
                 desc: "Monitor all live sales, 86 items in real time, and view combined financial accounting reports.",
               },
             ].map((st, i) => (
-              <div key={i} className="relative bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
+              <div key={i} className="relative bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-6 text-center">
                 <div className="h-10 w-10 rounded-full bg-gradient-to-tr from-brand-blue to-cyan-400 text-white font-black text-base flex items-center justify-center mx-auto mb-4 shadow-lg">
                   {st.step}
                 </div>
@@ -324,19 +326,19 @@ export function IntegrationsShowcase() {
         </div>
 
         {/* Enterprise-Grade Global Proof Bar */}
-        <div className="bg-gradient-to-r from-blue-950/60 via-slate-900 to-blue-950/60 border border-blue-500/20 rounded-3xl p-8 text-center mb-12">
+        <div className="bg-gradient-to-r from-blue-950/60 via-slate-900 to-blue-950/60 border border-blue-500/20 rounded-3xl p-5 sm:p-8 text-center mb-12">
           <div className="inline-flex items-center gap-2 mb-3">
             <Trophy className="h-4 w-4 text-amber-400" />
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-300">
+            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-300">
               BUILT ON WORLD-CLASS ENTERPRISE INFRASTRUCTURE
             </span>
           </div>
 
-          <p className="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto mb-8">
+          <p className="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto mb-6 sm:mb-8">
             Shift4 powers enterprise payments and integrations for world-renowned venues, championship sports stadiums, and Las Vegas mega-resorts.
           </p>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 pb-6 border-b border-white/10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pb-6 border-b border-white/10">
             <div>
               <div className="text-2xl sm:text-3xl font-black text-white">$200B+</div>
               <div className="text-xs text-slate-400 mt-1">Annual Processing Volume</div>
@@ -355,26 +357,26 @@ export function IntegrationsShowcase() {
             </div>
           </div>
 
-          <div className="pt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-12 text-xs sm:text-sm font-semibold text-slate-400">
-            <span className="flex items-center gap-1.5 text-slate-200">
-              <Building2 className="h-4 w-4 text-brand-accent" /> Caesars Palace, Las Vegas
+          <div className="pt-6 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs sm:text-sm font-semibold text-slate-400">
+            <span className="flex items-center gap-1.5 text-slate-200 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+              <Building2 className="h-3.5 w-3.5 text-brand-accent flex-shrink-0" /> Caesars Palace, Las Vegas
             </span>
-            <span className="flex items-center gap-1.5 text-slate-200">
-              <Building2 className="h-4 w-4 text-brand-accent" /> The Venetian (7,000+ Rooms)
+            <span className="flex items-center gap-1.5 text-slate-200 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+              <Building2 className="h-3.5 w-3.5 text-brand-accent flex-shrink-0" /> The Venetian (7,000+ Rooms)
             </span>
-            <span className="flex items-center gap-1.5 text-slate-200">
-              <Trophy className="h-4 w-4 text-amber-400" /> Pebble Beach US Open Host
+            <span className="flex items-center gap-1.5 text-slate-200 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+              <Trophy className="h-3.5 w-3.5 text-amber-400 flex-shrink-0" /> Pebble Beach US Open Host
             </span>
-            <span className="flex items-center gap-1.5 text-slate-200">
-              <Trophy className="h-4 w-4 text-cyan-400" /> Official NFL Stadium Partner
+            <span className="flex items-center gap-1.5 text-slate-200 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+              <Trophy className="h-3.5 w-3.5 text-cyan-400 flex-shrink-0" /> Official NFL Stadium Partner
             </span>
           </div>
         </div>
 
         {/* Direct 0% Commission Alternative Banner */}
-        <div className="rounded-3xl bg-gradient-to-r from-emerald-950/60 via-[#0A1A33] to-[#0F2247]/90 border border-emerald-500/30 p-6 sm:p-8 mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-2 text-left">
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
+        <div className="rounded-3xl bg-gradient-to-r from-emerald-950/60 via-[#0A1A33] to-[#0F2247]/90 border border-emerald-500/30 p-5 sm:p-8 mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-2 text-left w-full md:w-auto">
+            <span className="inline-block text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
               Keep 100% of Your Profits
             </span>
             <h3 className="text-xl sm:text-2xl font-black text-white">
@@ -386,10 +388,10 @@ export function IntegrationsShowcase() {
           </div>
           <Link
             href="/online-ordering"
-            className="flex-shrink-0 inline-flex items-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-6 py-3.5 text-sm transition-all shadow-lg shadow-emerald-500/20"
+            className="flex-shrink-0 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold px-6 py-3.5 min-h-[44px] text-sm transition-all shadow-lg shadow-emerald-500/20 w-full md:w-auto text-center"
           >
             <span>Explore 0% Online Ordering</span>
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4 flex-shrink-0" />
           </Link>
         </div>
 
@@ -398,10 +400,10 @@ export function IntegrationsShowcase() {
           <Link
             href="/get-quote"
             onClick={() => trackCTAClick("Integrations Showcase Bottom", "Integrations Section")}
-            className="inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-8 py-4 text-base font-bold text-white shadow-[0_10px_30px_rgba(30,107,255,0.45)] hover:shadow-[0_15px_40px_rgba(30,107,255,0.6)] hover:from-blue-600 hover:to-brand-blue transition-all"
+            className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-8 py-4 min-h-[44px] text-base font-bold text-white shadow-[0_10px_30px_rgba(30,107,255,0.45)] hover:shadow-[0_15px_40px_rgba(30,107,255,0.6)] hover:from-blue-600 hover:to-brand-blue transition-all w-full sm:w-auto"
           >
             <span>Get a Fast Integration Quote</span>
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4 flex-shrink-0" />
           </Link>
           <p className="text-[11px] text-slate-400 mt-3">
             *Terms and conditions apply. Third-party platform provider fees (e.g. Deliveroo commission) apply separately.

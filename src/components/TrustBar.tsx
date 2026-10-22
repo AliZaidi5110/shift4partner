@@ -44,11 +44,11 @@ export function TrustBar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Core Trust Pillars */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
           {trustItems.map((item, i) => {
             const Icon = item.icon;
             return (
-              <div key={i} className="flex items-center gap-3.5 p-2">
+              <div key={i} className="flex items-center gap-3 p-2 rounded-xl bg-white/[0.02] xs:bg-transparent">
                 {item.customIcon ? (
                   item.customIcon
                 ) : Icon ? (
@@ -66,29 +66,29 @@ export function TrustBar() {
         </div>
 
         {/* Accepted Payment Schemes & Logos */}
-        <div className="pt-6 border-t border-white/5 flex flex-wrap items-center justify-between gap-4">
+        <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-center sm:text-left">
           <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
             Accept All Major Payment Methods:
           </span>
 
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs font-semibold text-slate-300">
-            <span className="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 flex items-center gap-1.5 hover:border-slate-700 transition-colors">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-3 text-xs font-semibold text-slate-300">
+            <span className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 sm:px-3 py-1.5 flex items-center gap-1.5 hover:border-slate-700 transition-colors">
               <span className="text-blue-400 font-extrabold tracking-widest">VISA</span>
             </span>
-            <span className="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 flex items-center gap-1.5 hover:border-slate-700 transition-colors">
+            <span className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 sm:px-3 py-1.5 flex items-center gap-1.5 hover:border-slate-700 transition-colors">
               <span className="text-red-500 font-bold">master</span><span className="text-amber-500 font-bold">card</span>
             </span>
-            <span className="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 flex items-center gap-1.5 hover:border-slate-700 transition-colors">
+            <span className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 sm:px-3 py-1.5 flex items-center gap-1.5 hover:border-slate-700 transition-colors">
               <span className="text-blue-400 font-black">AMEX</span>
             </span>
-            <span className="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 flex items-center gap-1.5 hover:border-slate-700 transition-colors">
+            <span className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 sm:px-3 py-1.5 flex items-center gap-1.5 hover:border-slate-700 transition-colors">
               <span className="text-white font-medium">Apple Pay</span>
             </span>
-            <span className="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 flex items-center gap-1.5 hover:border-slate-700 transition-colors">
+            <span className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 sm:px-3 py-1.5 flex items-center gap-1.5 hover:border-slate-700 transition-colors">
               <span className="text-slate-200 font-medium">Google Pay</span>
             </span>
-            <span className="bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 flex items-center gap-1.5 hover:border-slate-700 transition-colors">
-              <span className="text-emerald-400 font-medium">Contactless · Chip & PIN</span>
+            <span className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 sm:px-3 py-1.5 flex items-center gap-1.5 hover:border-slate-700 transition-colors">
+              <span className="text-emerald-400 font-medium">Contactless · Chip &amp; PIN</span>
             </span>
           </div>
         </div>

@@ -114,7 +114,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
       <article className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         
         {/* Breadcrumb Navigation */}
-        <nav className="flex items-center gap-2 text-xs text-slate-400 mb-6">
+        <nav className="flex flex-wrap items-center gap-2 text-xs text-slate-400 mb-6">
           <Link href="/" className="hover:text-white transition-colors">Home</Link>
           <ChevronRight className="h-3 w-3" />
           <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
@@ -139,7 +139,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white">
             {post.title}
           </h1>
 
@@ -202,7 +202,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {/* Optional embedded table */}
               {sec.table && (
                 <div className="my-6 overflow-x-auto rounded-xl border border-slate-700 bg-slate-900/80 shadow-md">
-                  <table className="w-full text-left text-xs sm:text-sm border-collapse">
+                  <table className="w-full min-w-[480px] text-left text-xs sm:text-sm border-collapse">
                     <thead>
                       <tr className="bg-slate-800 text-white font-bold border-b border-slate-700">
                         {sec.table.headers.map((h, hIdx) => (
@@ -239,7 +239,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
           {/* Embedded Mid-Article CTA Banner */}
           <div className="my-10 rounded-2xl bg-gradient-to-r from-brand-blue to-blue-600 p-6 sm:p-8 text-white shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div>
+            <div className="text-center sm:text-left">
               <span className="text-xs font-bold uppercase tracking-widest text-blue-200">
                 UK MERCHANT SPECIAL OFFER
               </span>
@@ -253,7 +253,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             <Link
               href="/get-quote"
-              className="inline-flex items-center gap-2 rounded-xl bg-white text-brand-navy hover:bg-blue-50 px-6 py-3.5 text-sm font-bold shadow-lg transition-all flex-shrink-0"
+              className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-white text-brand-navy hover:bg-blue-50 px-6 py-3.5 text-sm font-bold shadow-lg transition-all flex-shrink-0"
             >
               <span>Get Free Quote &rarr;</span>
             </Link>
@@ -291,7 +291,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               href={`https://wa.me/?text=${encodedTitle}%20${encodedUrl}?utm_source=whatsapp_share`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-2 rounded-xl bg-emerald-600/20 text-emerald-400 hover:bg-emerald-600/30 border border-emerald-500/30 font-semibold transition-colors"
+              className="min-h-[44px] px-3.5 py-2 rounded-xl bg-emerald-600/20 text-emerald-400 hover:bg-emerald-600/30 border border-emerald-500/30 font-semibold inline-flex items-center justify-center transition-colors"
             >
               WhatsApp
             </a>
@@ -300,7 +300,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}?utm_source=linkedin_share`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-2 rounded-xl bg-blue-600/20 text-blue-400 hover:bg-blue-600/30 border border-blue-500/30 font-semibold transition-colors"
+              className="min-h-[44px] px-3.5 py-2 rounded-xl bg-blue-600/20 text-blue-400 hover:bg-blue-600/30 border border-blue-500/30 font-semibold inline-flex items-center justify-center transition-colors"
             >
               LinkedIn
             </a>
@@ -309,7 +309,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}?utm_source=x_share`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 border border-slate-700 font-semibold transition-colors"
+              className="min-h-[44px] px-3.5 py-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700 border border-slate-700 font-semibold inline-flex items-center justify-center transition-colors"
             >
               X / Twitter
             </a>
@@ -318,7 +318,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               href={`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}?utm_source=facebook_share`}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3.5 py-2 rounded-xl bg-blue-700/20 text-blue-300 hover:bg-blue-700/30 border border-blue-600/30 font-semibold transition-colors"
+              className="min-h-[44px] px-3.5 py-2 rounded-xl bg-blue-700/20 text-blue-300 hover:bg-blue-700/30 border border-blue-600/30 font-semibold inline-flex items-center justify-center transition-colors"
             >
               Facebook
             </a>

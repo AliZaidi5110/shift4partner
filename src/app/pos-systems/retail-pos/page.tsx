@@ -33,22 +33,22 @@ export default function RetailPOSPage() {
             RETAIL COMMERCE
           </span>
 
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
             Retail POS & Stock Management <br />
             <span className="text-brand-accent">Built for High-Street Retailers</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Gain complete visibility over sales, stock levels, margins, and customer loyalty across all your physical stores and online channels.
           </p>
 
-          <div className="flex justify-center gap-4 pt-2">
+          <div className="flex justify-center pt-2">
             <Link
               href="/get-quote"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-6 sm:px-7 py-3.5 min-h-[44px] text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all w-full sm:w-auto text-center"
             >
               <span>Get Retail POS Quote</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 flex-shrink-0" />
             </Link>
           </div>
         </div>

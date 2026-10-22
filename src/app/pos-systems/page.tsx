@@ -44,21 +44,21 @@ export default function POSSystemsPage() {
           <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-blue/20 border border-brand-accent/30 px-3 py-1 rounded-full">
             UNIFIED COMMERCE
           </span>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight mt-4 mb-4">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mt-4 mb-4">
             Cloud EPOS Systems for UK Businesses
           </h1>
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto mb-10">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto mb-8 sm:mb-10">
             Combine card payments, stock control, staff permissions, and customer loyalty into one powerful, user-friendly platform.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 text-left">
             {categories.map((cat, i) => {
               const Icon = cat.icon;
               return (
                 <Link
                   key={i}
                   href={cat.link}
-                  className="group p-6 rounded-2xl bg-gradient-to-b from-[#0F2247]/80 to-[#0A1833]/90 border border-slate-700/70 hover:border-brand-accent transition-all flex flex-col justify-between"
+                  className="group p-5 sm:p-6 rounded-2xl bg-gradient-to-b from-[#0F2247]/80 to-[#0A1833]/90 border border-slate-700/70 hover:border-brand-accent transition-all flex flex-col justify-between"
                 >
                   <div>
                     <div className="h-12 w-12 rounded-xl bg-brand-blue/20 text-brand-accent flex items-center justify-center mb-4 group-hover:bg-brand-blue group-hover:text-white transition-colors">

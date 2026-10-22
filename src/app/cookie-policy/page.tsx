@@ -18,7 +18,7 @@ export default function CookiePolicyPage() {
           <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-blue/20 px-3 py-1 rounded-full">
             PECR COMPLIANCE
           </span>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-2">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl font-extrabold text-white mt-4 mb-2">
             Cookie Policy
           </h1>
           <p className="text-xs text-slate-400">Last updated: October 2026</p>

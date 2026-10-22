@@ -31,7 +31,7 @@ function ThankYouContent() {
         Quote Request Confirmed
       </span>
 
-      <h1 className="text-3xl sm:text-5xl font-black tracking-tight mb-4">
+      <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-4">
         Thank You, <span className="text-brand-accent">{name}</span>!
       </h1>
 
@@ -95,7 +95,7 @@ function ThankYouContent() {
           <a
             href={`tel:${siteConfig.phoneRaw}`}
             onClick={() => trackPhoneClick("Thank You Page Call")}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 px-5 py-3 text-xs font-bold text-white transition-colors"
+            className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 px-5 py-3 text-xs font-bold text-white transition-colors"
           >
             <Phone className="h-4 w-4 text-emerald-400" />
             <span>Call {siteConfig.phone}</span>
@@ -106,7 +106,7 @@ function ThankYouContent() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppClick("Thank You Page WhatsApp")}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-5 py-3 text-xs font-bold text-white transition-colors"
+            className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-5 py-3 text-xs font-bold text-white transition-colors"
           >
             <MessageCircle className="h-4 w-4" />
             <span>Message on WhatsApp</span>
@@ -117,7 +117,7 @@ function ThankYouContent() {
       <div className="mt-8">
         <Link
           href="/"
-          className="text-xs text-brand-accent hover:underline inline-flex items-center gap-1 font-semibold"
+          className="min-h-[44px] text-xs text-brand-accent hover:underline inline-flex items-center justify-center gap-1 font-semibold"
         >
           <span>Return to Homepage</span>
           <ArrowRight className="h-3.5 w-3.5" />

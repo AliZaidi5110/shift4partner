@@ -113,7 +113,7 @@ export function QuoteSection({ title, subtitle, className = "" }: { title?: stri
               START YOUR 15-MINUTE QUOTE
             </span>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
               {title || (
                 <>
                   Get Your <span className="text-brand-accent">Shift4 One</span> Quote Today
@@ -130,7 +130,7 @@ export function QuoteSection({ title, subtitle, className = "" }: { title?: stri
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
                 onClick={() => trackPhoneClick("QuoteSection Phone Card")}
-                className="flex items-center justify-between p-4 rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-emerald-400/50 hover:bg-slate-900 transition-all group"
+                className="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-emerald-400/50 hover:bg-slate-900 transition-all group min-h-[44px]"
               >
                 <div className="flex items-center gap-3.5">
                   <div className="h-10 w-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">
@@ -138,12 +138,12 @@ export function QuoteSection({ title, subtitle, className = "" }: { title?: stri
                   </div>
                   <div>
                     <p className="text-xs text-slate-400 font-medium">Prefer speaking to someone right now?</p>
-                    <p className="text-base font-bold text-white group-hover:text-emerald-400 transition-colors">
+                    <p className="text-sm sm:text-base font-bold text-white group-hover:text-emerald-400 transition-colors">
                       Call {siteConfig.phone}
                     </p>
                   </div>
                 </div>
-                <ArrowRight className="h-4 w-4 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="h-4 w-4 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all flex-shrink-0" />
               </a>
 
               <a
@@ -151,7 +151,7 @@ export function QuoteSection({ title, subtitle, className = "" }: { title?: stri
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppClick("QuoteSection WhatsApp Card")}
-                className="flex items-center justify-between p-4 rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-emerald-400/50 hover:bg-slate-900 transition-all group"
+                className="flex items-center justify-between p-3.5 sm:p-4 rounded-2xl bg-slate-900/80 border border-slate-700/80 hover:border-emerald-400/50 hover:bg-slate-900 transition-all group min-h-[44px]"
               >
                 <div className="flex items-center gap-3.5">
                   <div className="h-10 w-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0">
@@ -159,12 +159,12 @@ export function QuoteSection({ title, subtitle, className = "" }: { title?: stri
                   </div>
                   <div>
                     <p className="text-xs text-slate-400 font-medium">Need instant answers on the go?</p>
-                    <p className="text-base font-bold text-white group-hover:text-emerald-400 transition-colors">
+                    <p className="text-sm sm:text-base font-bold text-white group-hover:text-emerald-400 transition-colors">
                       Chat on WhatsApp
                     </p>
                   </div>
                 </div>
-                <ArrowRight className="h-4 w-4 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="h-4 w-4 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-all flex-shrink-0" />
               </a>
             </div>
 
@@ -187,15 +187,15 @@ export function QuoteSection({ title, subtitle, className = "" }: { title?: stri
 
           {/* Right Column: Full Quote Form Card */}
           <div className="lg:col-span-7">
-            <div className="rounded-3xl bg-gradient-to-b from-[#0F2247]/95 to-[#0A1833]/98 border border-blue-500/40 p-6 sm:p-8 md:p-10 shadow-2xl backdrop-blur-xl">
+            <div className="rounded-3xl bg-gradient-to-b from-[#0F2247]/95 to-[#0A1833]/98 border border-blue-500/40 p-5 sm:p-8 md:p-10 shadow-2xl backdrop-blur-xl">
               
-              <div className="flex items-center justify-between pb-4 mb-6 border-b border-white/10">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-6 border-b border-white/10">
                 <div>
-                  <h3 className="text-xl font-bold text-white">Request Your Custom Rate Review</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-white">Request Your Custom Rate Review</h3>
                   <p className="text-xs text-slate-300 mt-0.5">Takes under 60 seconds · 100% confidential</p>
                 </div>
-                <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full flex items-center gap-1">
-                  <ShieldCheck className="h-3.5 w-3.5" /> No Spam Guarantee
+                <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full inline-flex items-center gap-1 self-start sm:self-auto">
+                  <ShieldCheck className="h-3.5 w-3.5 flex-shrink-0" /> No Spam Guarantee
                 </span>
               </div>
 
@@ -221,13 +221,14 @@ export function QuoteSection({ title, subtitle, className = "" }: { title?: stri
                       id="full-name"
                       type="text"
                       required
+                      autoComplete="name"
                       placeholder="e.g. Liam Gallagher"
                       value={formData.fullName}
                       onChange={(e) => {
                         setFormData({ ...formData, fullName: e.target.value });
                         if (errors.fullName) setErrors({ ...errors, fullName: "" });
                       }}
-                      className={`w-full rounded-xl bg-slate-900/90 border ${errors.fullName ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 transition-all`}
+                      className={`w-full rounded-xl bg-slate-900/90 border ${errors.fullName ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-4 py-2.5 min-h-[44px] text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 transition-all`}
                     />
                     {errors.fullName && <p className="text-red-400 text-[11px] mt-1">{errors.fullName}</p>}
                   </div>
@@ -241,13 +242,14 @@ export function QuoteSection({ title, subtitle, className = "" }: { title?: stri
                       id="phone-number"
                       type="tel"
                       required
+                      autoComplete="tel"
                       placeholder="e.g. 07123 456789"
                       value={formData.phone}
                       onChange={(e) => {
                         setFormData({ ...formData, phone: e.target.value });
                         if (errors.phone) setErrors({ ...errors, phone: "" });
                       }}
-                      className={`w-full rounded-xl bg-slate-900/90 border ${errors.phone ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 transition-all`}
+                      className={`w-full rounded-xl bg-slate-900/90 border ${errors.phone ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-4 py-2.5 min-h-[44px] text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 transition-all`}
                     />
                     {errors.phone && <p className="text-red-400 text-[11px] mt-1">{errors.phone}</p>}
                   </div>
@@ -263,13 +265,14 @@ export function QuoteSection({ title, subtitle, className = "" }: { title?: stri
                       id="email-address"
                       type="email"
                       required
+                      autoComplete="email"
                       placeholder="e.g. name@yourbusiness.co.uk"
                       value={formData.email}
                       onChange={(e) => {
                         setFormData({ ...formData, email: e.target.value });
                         if (errors.email) setErrors({ ...errors, email: "" });
                       }}
-                      className={`w-full rounded-xl bg-slate-900/90 border ${errors.email ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 transition-all`}
+                      className={`w-full rounded-xl bg-slate-900/90 border ${errors.email ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-4 py-2.5 min-h-[44px] text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 transition-all`}
                     />
                     {errors.email && <p className="text-red-400 text-[11px] mt-1">{errors.email}</p>}
                   </div>
@@ -282,10 +285,11 @@ export function QuoteSection({ title, subtitle, className = "" }: { title?: stri
                     <input
                       id="business-name"
                       type="text"
+                      autoComplete="organization"
                       placeholder="e.g. The Old Mill Café"
                       value={formData.businessName}
                       onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                      className="w-full rounded-xl bg-slate-900/90 border border-slate-700 focus:border-brand-accent px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 transition-all"
+                      className="w-full rounded-xl bg-slate-900/90 border border-slate-700 focus:border-brand-accent px-4 py-2.5 min-h-[44px] text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 transition-all"
                     />
                   </div>
                 </div>
@@ -304,7 +308,7 @@ export function QuoteSection({ title, subtitle, className = "" }: { title?: stri
                         setFormData({ ...formData, businessType: e.target.value });
                         if (errors.businessType) setErrors({ ...errors, businessType: "" });
                       }}
-                      className={`w-full rounded-xl bg-slate-900/90 border ${errors.businessType ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 transition-all`}
+                      className={`w-full rounded-xl bg-slate-900/90 border ${errors.businessType ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-4 py-2.5 min-h-[44px] text-base sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 transition-all`}
                     >
                       <option value="" disabled className="text-slate-500">
                         Select business sector...
@@ -336,7 +340,7 @@ export function QuoteSection({ title, subtitle, className = "" }: { title?: stri
                         setFormData({ ...formData, monthlyTurnover: e.target.value });
                         if (errors.monthlyTurnover) setErrors({ ...errors, monthlyTurnover: "" });
                       }}
-                      className={`w-full rounded-xl bg-slate-900/90 border ${errors.monthlyTurnover ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-4 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 transition-all`}
+                      className={`w-full rounded-xl bg-slate-900/90 border ${errors.monthlyTurnover ? "border-red-500" : "border-slate-700 focus:border-brand-accent"} px-4 py-2.5 min-h-[44px] text-base sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-blue/30 transition-all`}
                     >
                       <option value="" disabled className="text-slate-500">
                         Select monthly volume...
@@ -362,7 +366,7 @@ export function QuoteSection({ title, subtitle, className = "" }: { title?: stri
                     placeholder="e.g. Worldpay, Barclaycard, Clover, Zettle, Dojo, or None"
                     value={formData.currentProvider}
                     onChange={(e) => setFormData({ ...formData, currentProvider: e.target.value })}
-                    className="w-full rounded-xl bg-slate-900/90 border border-slate-700 focus:border-brand-accent px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 transition-all"
+                    className="w-full rounded-xl bg-slate-900/90 border border-slate-700 focus:border-brand-accent px-4 py-2.5 min-h-[44px] text-base sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-blue/30 transition-all"
                   />
                 </div>
 
@@ -370,17 +374,17 @@ export function QuoteSection({ title, subtitle, className = "" }: { title?: stri
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full mt-3 group inline-flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 hover:from-blue-600 hover:to-brand-blue px-6 py-4 text-base font-bold text-white shadow-[0_10px_25px_rgba(30,107,255,0.4)] hover:shadow-[0_15px_35px_rgba(30,107,255,0.6)] transition-all cursor-pointer disabled:opacity-70"
+                  className="w-full mt-3 group inline-flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 hover:from-blue-600 hover:to-brand-blue px-6 py-4 min-h-[44px] text-base font-bold text-white shadow-[0_10px_25px_rgba(30,107,255,0.4)] hover:shadow-[0_15px_35px_rgba(30,107,255,0.6)] transition-all cursor-pointer disabled:opacity-70 text-center"
                 >
                   {loading ? (
                     <>
-                      <Loader2 className="h-5 w-5 animate-spin" />
+                      <Loader2 className="h-5 w-5 animate-spin flex-shrink-0" />
                       <span>Submitting your request...</span>
                     </>
                   ) : (
                     <>
                       <span>Get My Free Quote →</span>
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 flex-shrink-0" />
                     </>
                   )}
                 </button>

@@ -3,11 +3,13 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Phone, ArrowRight, Menu, X, ChevronDown, ShieldCheck, CreditCard, LayoutGrid, Calculator, Sparkles, Utensils } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { trackCTAClick, trackPhoneClick } from "@/lib/analytics";
 
 export function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState<string | null>(null);
@@ -24,30 +26,63 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close menus on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setDropdownOpen(null);
+  }, [pathname]);
+
+  // Accessibility: Close on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileMenuOpen(false);
+        setDropdownOpen(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  // Accessibility: Body scroll lock when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
-      {/* Top Announcement Bar - Fixed 36px, same sans font, no monospace, no top clip */}
-      <div className="bg-[#050B14] border-b border-white/5 h-[36px] leading-[36px] text-[13px] text-slate-300 overflow-hidden font-sans">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-          <div className="flex items-center gap-2 truncate">
+      {/* Top Announcement Bar - Fluid, responsive layout, no clipping */}
+      <div className="bg-[#050B14] border-b border-white/5 min-h-[36px] py-1 text-[11px] sm:text-[13px] text-slate-300 font-sans">
+        <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2 truncate">
             <span className="flex h-2 w-2 rounded-full bg-emerald-400 flex-shrink-0" />
-            <span className="font-medium text-slate-300 truncate">Eposify &bull; Authorised Shift4 Partner (UK)</span>
+            <span className="font-medium text-slate-300 truncate">
+              <span className="hidden xs:inline">Eposify &bull; </span>Authorised Shift4 Partner
+            </span>
             <span className="hidden md:inline text-slate-500">|</span>
             <Link href="/online-ordering" className="hidden md:inline text-brand-accent hover:text-white transition-colors">
               0% Commission Online Ordering &rarr;
             </Link>
           </div>
 
-          <div className="flex items-center gap-4 flex-shrink-0">
+          <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
             <a
               href={`tel:${siteConfig.phoneRaw}`}
               onClick={() => trackPhoneClick("Top Micro-Bar")}
-              className="flex items-center gap-1.5 font-semibold text-slate-200 hover:text-brand-accent transition-colors"
+              className="flex items-center gap-1 font-semibold text-slate-200 hover:text-brand-accent transition-colors"
+              aria-label={`Call support at ${siteConfig.phone}`}
             >
-              <Phone className="h-3.5 w-3.5 text-brand-accent flex-shrink-0" />
-              <span>{siteConfig.phone}</span>
+              <Phone className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-brand-accent flex-shrink-0" />
+              <span className="whitespace-nowrap">{siteConfig.phone}</span>
             </a>
-            <span className="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 text-[12px] font-medium bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">
+            <span className="hidden sm:inline-flex items-center gap-1.5 text-emerald-400 text-[11px] sm:text-[12px] font-medium bg-emerald-500/10 border border-emerald-500/20 px-2 sm:px-2.5 py-0.5 rounded-full">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
               24/7 UK Support
             </span>
@@ -60,19 +95,19 @@ export function Navbar() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-[72px] gap-3 xl:gap-6">
           
           {/* 1. Left Group: Subtle Glass Pill Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0 mr-3 xl:mr-6 group">
-            <div className="flex items-center bg-[rgba(255,255,255,0.96)] rounded-[14px] px-3.5 xl:px-4 py-2 h-[44px] shadow-sm border border-white/40 group-hover:shadow-md transition-all">
+          <Link href="/" className="flex items-center flex-shrink-0 mr-2 sm:mr-3 xl:mr-6 group">
+            <div className="flex items-center bg-[rgba(255,255,255,0.96)] rounded-[12px] sm:rounded-[14px] px-2.5 sm:px-3.5 xl:px-4 py-1.5 sm:py-2 h-[38px] sm:h-[44px] shadow-sm border border-white/40 group-hover:shadow-md transition-all">
               <Image
                 src="/images/eposify-logo.png"
                 alt="Eposify - EPOS Made Easy. Payments Made Simple."
                 width={115}
                 height={30}
-                className="h-[22px] sm:h-[24px] w-auto object-contain"
+                className="h-[18px] sm:h-[22px] md:h-[24px] w-auto object-contain"
                 priority
               />
 
               {/* Subtle Vertical Divider */}
-              <div className="h-[20px] w-px bg-slate-300 mx-2 xl:mx-2.5" />
+              <div className="h-[16px] sm:h-[20px] w-px bg-slate-300 mx-1.5 sm:mx-2 xl:mx-2.5" />
 
               {/* Tightly cropped Shift4 Partner Logo */}
               <Image
@@ -80,7 +115,7 @@ export function Navbar() {
                 alt="Authorised Shift4 Partner"
                 width={65}
                 height={30}
-                className="h-[18px] sm:h-[20px] w-auto object-contain"
+                className="h-[14px] sm:h-[18px] md:h-[20px] w-auto object-contain"
                 priority
               />
             </div>
@@ -269,11 +304,11 @@ export function Navbar() {
           </div>
 
           {/* Mobile Right Controls (< 1100px) */}
-          <div className="flex nav:hidden items-center gap-2">
+          <div className="flex nav:hidden items-center gap-1.5 sm:gap-2">
             <Link
               href="/get-quote"
               onClick={() => trackCTAClick("Get Free Quote Mobile", "Navbar")}
-              className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-brand-blue to-blue-600 px-3.5 py-2 text-xs font-bold text-white shadow-md whitespace-nowrap"
+              className="inline-flex items-center gap-1 rounded-lg bg-gradient-to-r from-brand-blue to-blue-600 px-2.5 sm:px-3.5 py-2 text-xs font-bold text-white shadow-md whitespace-nowrap min-h-[38px]"
             >
               <span>Get Quote</span>
               <ArrowRight className="h-3 w-3" />
@@ -282,8 +317,9 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="rounded-lg p-2 text-slate-300 hover:bg-white/10 hover:text-white focus:outline-none"
+              className="rounded-lg p-2 text-slate-300 hover:bg-white/10 hover:text-white focus:outline-none min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
               aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -293,7 +329,7 @@ export function Navbar() {
 
         {/* Mobile Slide-down Drawer (< 1100px) */}
         {mobileMenuOpen && (
-          <div className="nav:hidden bg-[#080F23] border-b border-white/10 px-4 pt-4 pb-6 space-y-3 animate-fade-in shadow-2xl">
+          <div className="nav:hidden bg-[#080F23] border-b border-white/10 px-4 pt-4 pb-6 space-y-3 animate-fade-in shadow-2xl max-h-[calc(100svh-110px)] overflow-y-auto overscroll-contain no-scrollbar">
             <div className="flex items-center justify-between pb-3 mb-2 border-b border-white/10">
               <div className="flex items-center bg-[rgba(255,255,255,0.96)] rounded-[12px] px-3 py-1.5 shadow-sm border border-white/30">
                 <Image
@@ -301,15 +337,15 @@ export function Navbar() {
                   alt="Eposify"
                   width={110}
                   height={28}
-                  className="h-[22px] w-auto object-contain"
+                  className="h-[20px] w-auto object-contain"
                 />
-                <div className="h-[18px] w-px bg-slate-300 mx-2" />
+                <div className="h-[16px] w-px bg-slate-300 mx-2" />
                 <Image
                   src="/images/shift4-partner-logo.png"
                   alt="Shift4 Partner"
                   width={60}
                   height={26}
-                  className="h-[18px] w-auto object-contain"
+                  className="h-[16px] w-auto object-contain"
                 />
               </div>
               <span className="text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-full">
@@ -320,7 +356,7 @@ export function Navbar() {
             <Link
               href="/card-machines/shift4-one"
               onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/10"
+              className="block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:bg-white/10 min-h-[44px] flex items-center"
             >
               Shift4 One Card Machine
             </Link>
@@ -328,7 +364,7 @@ export function Navbar() {
             <Link
               href="/pos-systems"
               onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/10"
+              className="block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:bg-white/10 min-h-[44px] flex items-center"
             >
               EPOS Systems (Hospitality, Retail, Mobile)
             </Link>
@@ -336,7 +372,7 @@ export function Navbar() {
             <Link
               href="/online-ordering"
               onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg px-3 py-2 text-base font-semibold text-emerald-400 hover:bg-white/10 flex items-center justify-between"
+              className="block rounded-lg px-3 py-2.5 text-base font-semibold text-emerald-400 hover:bg-white/10 min-h-[44px] flex items-center justify-between"
             >
               <span>Commission-Free Online Ordering</span>
               <span className="text-xs bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 px-2 py-0.5 rounded-full">0% Fee</span>
@@ -345,29 +381,37 @@ export function Navbar() {
             <Link
               href="/integrations"
               onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg px-3 py-2 text-base font-semibold text-brand-accent hover:bg-white/10 flex items-center justify-between"
+              className="block rounded-lg px-3 py-2.5 text-base font-semibold text-brand-accent hover:bg-white/10 min-h-[44px] flex items-center justify-between"
             >
               <span>Platform Integrations (Deliveroo, Just Eat)</span>
               <span className="text-xs bg-brand-blue/30 border border-brand-accent/30 text-brand-accent px-2 py-0.5 rounded-full">New</span>
+            </Link>
+
+            <Link
+              href="/pricing"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:bg-white/10 min-h-[44px] flex items-center"
+            >
+              Pricing &amp; Transaction Fees
             </Link>
 
             <div className="pt-2 border-t border-white/10">
               <span className="text-[11px] font-bold uppercase tracking-wider text-brand-accent px-3 block mb-1">
                 Card Machine Comparisons 2026
               </span>
-              <div className="grid grid-cols-2 gap-1 px-1">
+              <div className="grid grid-cols-2 gap-1.5 px-1">
                 <Link
                   href="/compare"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-lg px-2.5 py-1.5 text-xs font-bold text-white bg-white/5 hover:bg-white/10 col-span-2 flex items-center justify-between"
+                  className="rounded-lg px-3 py-2 text-xs font-bold text-white bg-white/5 hover:bg-white/10 col-span-2 flex items-center justify-between min-h-[44px]"
                 >
-                  <span>Compare All 8 Providers</span>
-                  <ArrowRight className="h-3.5 w-3.5 text-brand-accent" />
+                  <span>Compare All 8 UK Providers</span>
+                  <ArrowRight className="h-4 w-4 text-brand-accent" />
                 </Link>
                 <Link
                   href="/compare/square-alternative"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-lg px-2.5 py-1.5 text-xs text-slate-300 hover:text-white hover:bg-white/10 flex items-center justify-between"
+                  className="rounded-lg px-2.5 py-2 text-xs text-slate-300 hover:text-white hover:bg-white/10 flex items-center justify-between min-h-[40px]"
                 >
                   <span>vs Square</span>
                   <span className="text-[10px] text-emerald-400 font-bold">1.25%</span>
@@ -375,7 +419,7 @@ export function Navbar() {
                 <Link
                   href="/compare/dojo-alternative"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-lg px-2.5 py-1.5 text-xs text-slate-300 hover:text-white hover:bg-white/10 flex items-center justify-between"
+                  className="rounded-lg px-2.5 py-2 text-xs text-slate-300 hover:text-white hover:bg-white/10 flex items-center justify-between min-h-[40px]"
                 >
                   <span>vs Dojo</span>
                   <span className="text-[10px] text-emerald-400 font-bold">£0 Rent</span>
@@ -383,7 +427,7 @@ export function Navbar() {
                 <Link
                   href="/compare/zettle-alternative"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-lg px-2.5 py-1.5 text-xs text-slate-300 hover:text-white hover:bg-white/10 flex items-center justify-between"
+                  className="rounded-lg px-2.5 py-2 text-xs text-slate-300 hover:text-white hover:bg-white/10 flex items-center justify-between min-h-[40px]"
                 >
                   <span>vs Zettle</span>
                   <span className="text-[10px] text-emerald-400 font-bold">+Printer</span>
@@ -391,7 +435,7 @@ export function Navbar() {
                 <Link
                   href="/compare/sumup-alternative"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-lg px-2.5 py-1.5 text-xs text-slate-300 hover:text-white hover:bg-white/10 flex items-center justify-between"
+                  className="rounded-lg px-2.5 py-2 text-xs text-slate-300 hover:text-white hover:bg-white/10 flex items-center justify-between min-h-[40px]"
                 >
                   <span>vs SumUp</span>
                   <span className="text-[10px] text-emerald-400 font-bold">4G SIM</span>
@@ -399,7 +443,7 @@ export function Navbar() {
                 <Link
                   href="/compare/worldpay-alternative"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-lg px-2.5 py-1.5 text-xs text-slate-300 hover:text-white hover:bg-white/10 flex items-center justify-between"
+                  className="rounded-lg px-2.5 py-2 text-xs text-slate-300 hover:text-white hover:bg-white/10 flex items-center justify-between min-h-[40px]"
                 >
                   <span>vs Worldpay</span>
                   <span className="text-[10px] text-emerald-400 font-bold">No Lease</span>
@@ -407,7 +451,7 @@ export function Navbar() {
                 <Link
                   href="/compare/barclaycard-alternative"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-lg px-2.5 py-1.5 text-xs text-slate-300 hover:text-white hover:bg-white/10 flex items-center justify-between"
+                  className="rounded-lg px-2.5 py-2 text-xs text-slate-300 hover:text-white hover:bg-white/10 flex items-center justify-between min-h-[40px]"
                 >
                   <span>vs Barclaycard</span>
                   <span className="text-[10px] text-emerald-400 font-bold">0 Extra</span>
@@ -415,7 +459,7 @@ export function Navbar() {
                 <Link
                   href="/compare/takepayments-alternative"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="rounded-lg px-2.5 py-1.5 text-xs text-slate-300 hover:text-white hover:bg-white/10 flex items-center justify-between col-span-2"
+                  className="rounded-lg px-2.5 py-2 text-xs text-slate-300 hover:text-white hover:bg-white/10 flex items-center justify-between col-span-2 min-h-[40px]"
                 >
                   <span>vs Takepayments</span>
                   <span className="text-[10px] text-emerald-400 font-bold">No £30/mo Rental</span>
@@ -426,19 +470,32 @@ export function Navbar() {
             <Link
               href="/faq"
               onClick={() => setMobileMenuOpen(false)}
-              className="block rounded-lg px-3 py-2 text-base font-semibold text-white hover:bg-white/10"
+              className="block rounded-lg px-3 py-2.5 text-base font-semibold text-white hover:bg-white/10 min-h-[44px] flex items-center"
             >
               Frequently Asked Questions
             </Link>
 
-            <div className="pt-3 border-t border-white/10 space-y-2">
+            <div className="pt-3 border-t border-white/10 space-y-2.5">
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
-                className="flex items-center justify-center gap-2 rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm font-semibold text-white"
+                onClick={() => trackPhoneClick("Mobile Drawer Call")}
+                className="flex items-center justify-center gap-2 rounded-xl bg-white/5 border border-white/10 px-4 py-3 text-sm font-semibold text-white min-h-[44px]"
               >
                 <Phone className="h-4 w-4 text-emerald-400" />
-                <span>Call {siteConfig.phone}</span>
+                <span>Call {siteConfig.phone} (24/7 UK Support)</span>
               </a>
+
+              <Link
+                href="/get-quote"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  trackCTAClick("Get Free Quote Mobile Drawer", "Navbar");
+                }}
+                className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-4 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/40 min-h-[44px] w-full text-center"
+              >
+                <span>Get Free Quote</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         )}

@@ -21,7 +21,7 @@ export default function FAQPage() {
           <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-blue/20 border border-brand-accent/30 px-3 py-1 rounded-full">
             KNOWLEDGE BASE
           </span>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight mt-4 mb-4">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mt-4 mb-4">
             Payment & Card Machine <span className="text-brand-accent">FAQs</span>
           </h1>
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">

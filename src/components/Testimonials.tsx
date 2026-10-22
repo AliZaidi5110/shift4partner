@@ -43,18 +43,18 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-blue/20 border border-brand-accent/30 px-3 py-1 rounded-full">
             REAL UK MERCHANT EXPERIENCES
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mt-4 mb-4">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mt-4 mb-4">
             Trusted by Growing <span className="text-brand-accent">UK Businesses</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-300">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-300">
             See how cafés, restaurants, salons, and mobile vendors have streamlined their payments and cut rental fees.
           </p>
 
-          <div className="mt-5 inline-flex items-center gap-2 bg-slate-900/80 border border-slate-700 px-4 py-2 rounded-full text-xs text-slate-300">
+          <div className="mt-5 inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 bg-slate-900/80 border border-slate-700 px-3.5 sm:px-4 py-2 rounded-full text-xs text-slate-300">
             <div className="flex gap-1 text-amber-400">
               {[1, 2, 3, 4, 5].map((s) => (
                 <Star key={s} className="h-4 w-4 fill-amber-400" />
@@ -67,11 +67,13 @@ export function Testimonials() {
         </div>
 
         {/* 3 Review Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {placeholderReviews.map((rev, i) => (
             <div
               key={i}
-              className="relative rounded-2xl bg-gradient-to-b from-[#0F2247]/70 to-[#0A1833]/80 border border-slate-700/60 p-7 flex flex-col justify-between hover:border-brand-accent/50 transition-all shadow-xl"
+              className={`relative rounded-2xl bg-gradient-to-b from-[#0F2247]/70 to-[#0A1833]/80 border border-slate-700/60 p-5 sm:p-7 flex flex-col justify-between hover:border-brand-accent/50 transition-all shadow-xl ${
+                i === 2 ? "md:col-span-2 lg:col-span-1" : ""
+              }`}
             >
               <div>
                 <div className="flex justify-between items-center mb-4">

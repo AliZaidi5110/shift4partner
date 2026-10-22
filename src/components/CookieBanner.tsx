@@ -61,7 +61,7 @@ export function CookieBanner() {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6 bg-[#060E1C]/98 border-t border-blue-900/60 shadow-[0_-10px_35px_rgba(0,0,0,0.8)] backdrop-blur-xl text-white">
+    <div className="fixed bottom-[calc(56px+env(safe-area-inset-bottom,0px))] sm:bottom-0 left-0 right-0 z-50 p-4 sm:p-6 bg-[#060E1C]/98 border-t border-blue-900/60 shadow-[0_-10px_35px_rgba(0,0,0,0.8)] backdrop-blur-xl text-white">
       <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
         
         {/* Notice text */}
@@ -90,7 +90,7 @@ export function CookieBanner() {
           <button
             type="button"
             onClick={handleAcceptAll}
-            className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 hover:from-blue-600 hover:to-brand-blue text-xs font-bold text-white shadow-md shadow-blue-500/30 transition-all flex-grow sm:flex-grow-0"
+            className="px-5 py-2.5 min-h-[44px] rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 hover:from-blue-600 hover:to-brand-blue text-xs font-bold text-white shadow-md shadow-blue-500/30 transition-all flex-grow sm:flex-grow-0 cursor-pointer"
           >
             Accept All Cookies
           </button>
@@ -98,7 +98,7 @@ export function CookieBanner() {
           <button
             type="button"
             onClick={handleRejectNonEssential}
-            className="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors flex-grow sm:flex-grow-0"
+            className="px-4 py-2.5 min-h-[44px] rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 transition-colors flex-grow sm:flex-grow-0 cursor-pointer"
           >
             Reject Non-Essential
           </button>
@@ -106,7 +106,7 @@ export function CookieBanner() {
           <button
             type="button"
             onClick={() => setShowDetails(!showDetails)}
-            className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
+            className="p-2.5 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
             title="Customise preferences"
             aria-label="Customise preferences"
           >

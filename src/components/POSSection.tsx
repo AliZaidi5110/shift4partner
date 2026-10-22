@@ -71,69 +71,71 @@ export function POSSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-blue/20 border border-brand-accent/30 px-3 py-1 rounded-full">
             COMPLETE EPOS ECOSYSTEM
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mt-4 mb-4">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mt-4 mb-4">
             Go Beyond Payments with <span className="text-brand-accent">Shift4 POS</span>
           </h2>
-          <p className="text-base sm:text-lg text-slate-300">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-300">
             More than just card machines. Transform your operations with intelligent, industry-specific point-of-sale software designed for growth.
           </p>
 
-          {/* Segment Tabs Switcher */}
-          <div className="mt-8 inline-flex p-1.5 rounded-2xl bg-slate-900/80 border border-slate-700/80 backdrop-blur-md">
-            <button
-              type="button"
-              onClick={() => setActiveTab("hospitality")}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
-                activeTab === "hospitality"
-                  ? "bg-brand-blue text-white shadow-lg shadow-blue-500/30"
-                  : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <Utensils className="h-4 w-4" />
-              <span>Hospitality</span>
-            </button>
+          {/* Segment Tabs Switcher - mobile scrollable with no scrollbar */}
+          <div className="mt-6 sm:mt-8 w-full flex justify-center">
+            <div className="max-w-full overflow-x-auto no-scrollbar inline-flex p-1 sm:p-1.5 rounded-2xl bg-slate-900/80 border border-slate-700/80 backdrop-blur-md">
+              <button
+                type="button"
+                onClick={() => setActiveTab("hospitality")}
+                className={`flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold min-h-[44px] whitespace-nowrap transition-all ${
+                  activeTab === "hospitality"
+                    ? "bg-brand-blue text-white shadow-lg shadow-blue-500/30"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                <Utensils className="h-4 w-4 flex-shrink-0" />
+                <span>Hospitality</span>
+              </button>
 
-            <button
-              type="button"
-              onClick={() => setActiveTab("retail")}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
-                activeTab === "retail"
-                  ? "bg-brand-blue text-white shadow-lg shadow-blue-500/30"
-                  : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <ShoppingBag className="h-4 w-4" />
-              <span>Retail</span>
-            </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("retail")}
+                className={`flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold min-h-[44px] whitespace-nowrap transition-all ${
+                  activeTab === "retail"
+                    ? "bg-brand-blue text-white shadow-lg shadow-blue-500/30"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                <ShoppingBag className="h-4 w-4 flex-shrink-0" />
+                <span>Retail</span>
+              </button>
 
-            <button
-              type="button"
-              onClick={() => setActiveTab("mobile")}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
-                activeTab === "mobile"
-                  ? "bg-brand-blue text-white shadow-lg shadow-blue-500/30"
-                  : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <Truck className="h-4 w-4" />
-              <span>Mobile & Events</span>
-            </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab("mobile")}
+                className={`flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold min-h-[44px] whitespace-nowrap transition-all ${
+                  activeTab === "mobile"
+                    ? "bg-brand-blue text-white shadow-lg shadow-blue-500/30"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                <Truck className="h-4 w-4 flex-shrink-0" />
+                <span>Mobile & Events</span>
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Tab Detail Card */}
-        <div className="rounded-3xl bg-gradient-to-b from-[#0F2247]/90 to-[#0A1833]/95 border border-blue-500/30 p-8 sm:p-10 shadow-2xl mb-14">
+        <div className="rounded-3xl bg-gradient-to-b from-[#0F2247]/90 to-[#0A1833]/95 border border-blue-500/30 p-5 sm:p-8 lg:p-10 shadow-2xl mb-12 sm:mb-14">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-7 space-y-5">
               <div className="inline-block bg-blue-500/10 text-brand-accent text-xs font-bold px-3 py-1 rounded-full border border-blue-500/20">
                 {current.metric}
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight">
                 {current.title}
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
@@ -152,11 +154,11 @@ export function POSSection() {
                 ))}
               </div>
 
-              <div className="pt-4 flex flex-wrap items-center gap-4">
+              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                 <Link
                   href="/get-quote"
                   onClick={() => trackCTAClick("Get Free POS Quote", `POSSection - ${activeTab}`)}
-                  className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-6 py-3 text-sm font-bold text-white shadow-md shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-6 py-3 min-h-[44px] text-sm font-bold text-white shadow-md shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all w-full sm:w-auto"
                 >
                   <span>Get POS System Quote</span>
                   <ArrowRight className="h-4 w-4" />
@@ -164,7 +166,7 @@ export function POSSection() {
 
                 <Link
                   href={current.link}
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-accent hover:text-white transition-colors"
+                  className="inline-flex items-center justify-center sm:justify-start gap-1.5 min-h-[44px] text-sm font-semibold text-brand-accent hover:text-white transition-colors"
                 >
                   <span>Learn more about {activeTab} POS</span>
                   <ArrowRight className="h-3.5 w-3.5" />

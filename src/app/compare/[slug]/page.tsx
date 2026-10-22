@@ -93,7 +93,7 @@ export default async function ProviderComparePage({ params }: PageProps) {
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
             Shift4 One vs {provider.name} <br />
             <span className="bg-gradient-to-r from-[#4DA3FF] via-[#1E6BFF] to-[#38BDF8] bg-clip-text text-transparent">
               Cheaper Rates &amp; £0 Monthly Rental
@@ -107,7 +107,7 @@ export default async function ProviderComparePage({ params }: PageProps) {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <Link
               href="/get-quote"
-              className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-8 py-4 text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all"
+              className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-8 py-3.5 text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all"
             >
               <span>Get Your Free Shift4 Quote</span>
               <ArrowRight className="h-4 w-4" />
@@ -115,7 +115,7 @@ export default async function ProviderComparePage({ params }: PageProps) {
 
             <a
               href={`tel:${siteConfig.phoneRaw}`}
-              className="inline-flex items-center gap-2 rounded-xl border border-slate-700 bg-white/5 px-6 py-4 text-sm font-semibold text-slate-200 hover:bg-white/10 hover:text-white transition-all"
+              className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-white/5 px-6 py-3.5 text-sm font-semibold text-slate-200 hover:bg-white/10 hover:text-white transition-all"
             >
               <PhoneCall className="h-4 w-4 text-emerald-400" />
               <span>Call 24/7 Support: {siteConfig.phone}</span>
@@ -125,22 +125,28 @@ export default async function ProviderComparePage({ params }: PageProps) {
       </section>
 
       {/* Side-by-Side Detailed Card Comparison */}
-      <section className="bg-[#050C18] py-20 border-b border-white/5">
+      <section className="bg-[#050C18] py-16 sm:py-20 border-b border-white/5">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-accent">
               Direct Comparison
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-white mt-2">
               Why UK Merchants Are Switching from {provider.name}
             </h2>
-            <p className="text-sm text-slate-300 mt-2">
+            <p className="text-xs sm:text-sm text-slate-300 mt-2">
               {provider.shift4Advantage}
             </p>
           </div>
 
-          <div className="overflow-hidden rounded-3xl border border-slate-700 bg-[#071120] shadow-2xl">
-            <table className="w-full text-left text-xs sm:text-sm">
+          <div className="relative rounded-2xl sm:rounded-3xl border border-slate-700 bg-[#071120] shadow-2xl overflow-hidden">
+            {/* Mobile scroll hint */}
+            <div className="sm:hidden px-4 py-2 bg-slate-800/80 border-b border-white/5 text-[11px] text-slate-400 flex items-center justify-between">
+              <span>Scroll horizontally to view comparison</span>
+              <span className="text-brand-accent font-semibold">Swipe →</span>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[480px] text-left text-xs sm:text-sm">
               <thead>
                 <tr className="border-b border-white/10 bg-[#0A1833]">
                   <th className="py-4 px-6 font-bold text-white uppercase text-xs">Feature</th>
@@ -171,6 +177,7 @@ export default async function ProviderComparePage({ params }: PageProps) {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
 
           {/* Rate comparison alert box */}

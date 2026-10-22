@@ -174,32 +174,32 @@ export default function OnlineOrderingPage() {
                 </span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08]">
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08]">
                 <span className="block text-white">Online Ordering for</span>
                 <span className="block bg-gradient-to-r from-[#4DA3FF] via-[#1E6BFF] to-[#38BDF8] bg-clip-text text-transparent drop-shadow-sm">
                   0% Commission.
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
+              <p className="text-sm sm:text-base md:text-xl text-slate-300 font-normal leading-relaxed max-w-2xl">
                 Stop handing 30% of every takeaway and delivery order to delivery apps. Accept direct orders from your website, sync instantly with your Shift4 kitchen printer, and keep 100% of your food profits.
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
                 <Link
                   href="/get-quote"
-                  className="group relative inline-flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-7 py-4 text-base font-bold text-white shadow-[0_10px_30px_rgba(30,107,255,0.45)] hover:shadow-[0_15px_40px_rgba(30,107,255,0.6)] hover:from-blue-600 hover:to-brand-blue transition-all transform hover:-translate-y-0.5"
+                  className="group relative inline-flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-6 sm:px-7 py-3.5 sm:py-4 min-h-[44px] text-sm sm:text-base font-bold text-white shadow-[0_10px_30px_rgba(30,107,255,0.45)] hover:shadow-[0_15px_40px_rgba(30,107,255,0.6)] hover:from-blue-600 hover:to-brand-blue transition-all transform hover:-translate-y-0.5 w-full sm:w-auto text-center"
                 >
                   <span>Launch 0% Online Ordering</span>
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 flex-shrink-0" />
                 </Link>
 
                 <a
                   href={`tel:${siteConfig.phoneRaw}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-white/5 backdrop-blur-md px-6 py-4 text-base font-semibold text-slate-200 hover:bg-white/10 hover:text-white hover:border-slate-500 transition-all text-center"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-700 bg-white/5 backdrop-blur-md px-5 sm:px-6 py-3.5 sm:py-4 min-h-[44px] text-sm sm:text-base font-semibold text-slate-200 hover:bg-white/10 hover:text-white hover:border-slate-500 transition-all text-center w-full sm:w-auto"
                 >
-                  <PhoneCall className="h-4 w-4 text-emerald-400" />
+                  <PhoneCall className="h-4 w-4 text-emerald-400 flex-shrink-0" />
                   <span>Call {siteConfig.phone}</span>
                 </a>
               </div>
@@ -210,25 +210,25 @@ export default function OnlineOrderingPage() {
                   <div className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 flex-shrink-0 border border-emerald-400/30">
                     <Check className="h-3.5 w-3.5 stroke-[3]" />
                   </div>
-                  <span className="text-sm text-white font-medium">Keep 100% of order revenue</span>
+                  <span className="text-xs sm:text-sm text-white font-medium">Keep 100% of order revenue</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <div className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 flex-shrink-0 border border-emerald-400/30">
                     <Check className="h-3.5 w-3.5 stroke-[3]" />
                   </div>
-                  <span className="text-sm text-white font-medium">Automatic kitchen docket printing</span>
+                  <span className="text-xs sm:text-sm text-white font-medium">Automatic kitchen docket printing</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <div className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 flex-shrink-0 border border-emerald-400/30">
                     <Check className="h-3.5 w-3.5 stroke-[3]" />
                   </div>
-                  <span className="text-sm text-slate-300">QR table order & pay included</span>
+                  <span className="text-xs sm:text-sm text-slate-300">QR table order & pay included</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <div className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 flex-shrink-0 border border-emerald-400/30">
                     <Check className="h-3.5 w-3.5 stroke-[3]" />
                   </div>
-                  <span className="text-sm text-slate-300">Own all customer emails & data</span>
+                  <span className="text-xs sm:text-sm text-slate-300">Own all customer emails & data</span>
                 </div>
               </div>
             </div>
@@ -346,30 +346,36 @@ export default function OnlineOrderingPage() {
       </section>
 
       {/* 4. Comparison Table: Shift4 Direct Online Ordering vs 3rd Party Apps */}
-      <section className="bg-gradient-to-b from-[#060D1A] to-[#0A1A33] py-20 lg:py-28 border-b border-white/5">
+      <section className="bg-gradient-to-b from-[#060D1A] to-[#0A1A33] py-16 sm:py-24 border-b border-white/5">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-blue/20 border border-brand-accent/30 px-3 py-1 rounded-full">
               DIRECT VS AGGREGATORS
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mt-4 mb-4">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mt-4 mb-4">
               Compare Shift4 Direct with Delivery Apps
             </h2>
-            <p className="text-base sm:text-lg text-slate-300">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-300">
               Why leading UK restaurants and takeaways are moving orders away from high-commission marketplaces.
             </p>
           </div>
 
+          <div className="md:hidden flex items-center justify-center gap-2 mb-3 p-2.5 bg-slate-900/80 border border-slate-700 rounded-xl text-xs text-slate-300 text-center">
+            <span>👉 Swipe table horizontally to compare features</span>
+          </div>
+
           <div className="overflow-hidden rounded-3xl border border-slate-700 bg-[#071120] shadow-2xl">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm">
+            <div className="overflow-x-auto no-scrollbar">
+              <table className="w-full text-left text-xs sm:text-sm">
                 <thead>
                   <tr className="border-b border-white/10 bg-[#0A1833]">
-                    <th className="py-4 px-6 font-bold text-white uppercase text-xs">Feature</th>
-                    <th className="py-4 px-6 font-bold text-emerald-400 uppercase text-xs bg-brand-blue/10 border-x border-brand-blue/20">
+                    <th className="py-4 px-4 sm:px-6 font-bold text-white uppercase text-xs sticky left-0 bg-[#0A1833] z-20 min-w-[140px] sm:min-w-[160px] shadow-sm">
+                      Feature
+                    </th>
+                    <th className="py-4 px-4 sm:px-6 font-bold text-emerald-400 uppercase text-xs bg-brand-blue/10 border-x border-brand-blue/20 min-w-[180px]">
                       Shift4 Direct Online Ordering
                     </th>
-                    <th className="py-4 px-6 font-bold text-slate-400 uppercase text-xs">
+                    <th className="py-4 px-4 sm:px-6 font-bold text-slate-400 uppercase text-xs min-w-[170px]">
                       Deliveroo / Just Eat / Uber Eats
                     </th>
                   </tr>
@@ -377,16 +383,16 @@ export default function OnlineOrderingPage() {
                 <tbody className="divide-y divide-white/5">
                   {comparisonRows.map((row, idx) => (
                     <tr key={idx} className="hover:bg-white/[0.02] transition-colors">
-                      <td className="py-4 px-6 font-semibold text-slate-200">
+                      <td className="py-3.5 sm:py-4 px-4 sm:px-6 font-semibold text-slate-200 sticky left-0 bg-[#071120] z-10 border-r border-white/5 shadow-sm">
                         {row.feature}
                       </td>
-                      <td className="py-4 px-6 bg-brand-blue/5 border-x border-brand-blue/15 font-semibold text-emerald-300">
+                      <td className="py-3.5 sm:py-4 px-4 sm:px-6 bg-brand-blue/5 border-x border-brand-blue/15 font-semibold text-emerald-300">
                         <div className="flex items-center gap-2">
                           <CheckCircle2 className="h-4 w-4 text-emerald-400 flex-shrink-0" />
                           <span>{row.shift4}</span>
                         </div>
                       </td>
-                      <td className="py-4 px-6 text-slate-400">
+                      <td className="py-3.5 sm:py-4 px-4 sm:px-6 text-slate-400">
                         <div className="flex items-center gap-2">
                           <AlertCircle className="h-4 w-4 text-red-400/80 flex-shrink-0" />
                           <span>{row.apps}</span>
@@ -402,13 +408,13 @@ export default function OnlineOrderingPage() {
       </section>
 
       {/* 5. 4-Step Order Workflow */}
-      <section className="bg-[#050C18] py-20 border-b border-white/5">
+      <section className="bg-[#050C18] py-16 sm:py-24 border-b border-white/5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-blue/20 border border-brand-accent/30 px-3 py-1 rounded-full">
               SEAMLESS FULFILLMENT
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mt-4 mb-4">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mt-4 mb-4">
               How Direct Orders Flow into Your Kitchen
             </h2>
             <p className="text-sm sm:text-base text-slate-300">

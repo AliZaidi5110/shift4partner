@@ -19,7 +19,7 @@ export function DeviceMockup() {
   };
 
   return (
-    <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] select-none py-6">
+    <div className="relative mx-auto w-full max-w-[280px] xs:max-w-[340px] sm:max-w-[380px] select-none py-6">
       {/* Glow behind device */}
       <div className="absolute -inset-4 bg-gradient-to-tr from-brand-blue/30 via-brand-accent/20 to-transparent blur-2xl rounded-full opacity-70 pointer-events-none" />
 
@@ -27,17 +27,17 @@ export function DeviceMockup() {
       <div 
         className="relative transition-transform duration-500 ease-out hover:rotate-0 hover:scale-[1.02]"
         style={{
-          transform: "perspective(1200px) rotateY(-10deg) rotateX(7deg) rotateZ(1.5deg)",
+          transform: "perspective(1200px) rotateY(-6deg) rotateX(4deg) rotateZ(1deg)",
           transformStyle: "preserve-3d",
         }}
       >
         {/* Terminal Outer Body */}
-        <div className="relative rounded-[36px] bg-gradient-to-b from-[#1E293B] via-[#0F172A] to-[#0A0F1D] p-4 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8),0_0_0_1px_rgba(255,255,255,0.12),inset_0_2px_4px_rgba(255,255,255,0.2)]">
+        <div className="relative rounded-[32px] sm:rounded-[36px] bg-gradient-to-b from-[#1E293B] via-[#0F172A] to-[#0A0F1D] p-3.5 sm:p-4 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8),0_0_0_1px_rgba(255,255,255,0.12),inset_0_2px_4px_rgba(255,255,255,0.2)]">
           {/* Top Thermal Printer Slot */}
-          <div className="mx-auto mb-3 h-2 w-36 rounded-full bg-[#050811] shadow-[inset_0_1px_2px_rgba(0,0,0,0.8)] border-b border-white/10" />
+          <div className="mx-auto mb-3 h-2 w-28 sm:w-36 rounded-full bg-[#050811] shadow-[inset_0_1px_2px_rgba(0,0,0,0.8)] border-b border-white/10" />
 
           {/* LED Contactless Indicator Row */}
-          <div className="mb-2 flex justify-center items-center gap-3">
+          <div className="mb-2 flex justify-center items-center gap-2.5 sm:gap-3">
             <span className={`h-2 w-2 rounded-full transition-all duration-300 ${screenState === "approved" ? "bg-emerald-400 shadow-[0_0_8px_#34D399]" : "bg-emerald-500/80 shadow-[0_0_4px_#10B981]"}`} />
             <span className={`h-2 w-2 rounded-full transition-all duration-300 ${screenState === "approved" ? "bg-emerald-400 shadow-[0_0_8px_#34D399]" : "bg-emerald-500/80 shadow-[0_0_4px_#10B981]"}`} />
             <span className={`h-2 w-2 rounded-full transition-all duration-300 ${screenState === "approved" ? "bg-emerald-400 shadow-[0_0_8px_#34D399]" : "bg-emerald-500/80 shadow-[0_0_4px_#10B981]"}`} />
@@ -172,12 +172,12 @@ export function DeviceMockup() {
         </div>
 
         {/* Floating Feature Tags */}
-        <div className="absolute -bottom-4 -left-6 bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-xl px-3 py-1.5 shadow-xl flex items-center gap-2 text-xs text-white">
-          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="font-medium">Multi-Network 4G Roaming</span>
+        <div className="absolute -bottom-3 left-0 sm:-left-4 bg-slate-900/90 backdrop-blur-md border border-white/10 rounded-xl px-2.5 py-1 sm:px-3 sm:py-1.5 shadow-xl flex items-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-white max-w-[85%] truncate">
+          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
+          <span className="font-medium truncate">Multi-Network 4G Roaming</span>
         </div>
 
-        <div className="absolute -top-3 -right-4 bg-blue-600/90 backdrop-blur-md border border-white/20 rounded-xl px-3 py-1.5 shadow-xl text-xs text-white font-bold">
+        <div className="absolute -top-3 right-0 sm:-right-4 bg-blue-600/90 backdrop-blur-md border border-white/20 rounded-xl px-2.5 py-1 sm:px-3 sm:py-1.5 shadow-xl text-[10px] sm:text-xs text-white font-bold max-w-[80%] truncate">
           £0 Monthly Rental*
         </div>
       </div>

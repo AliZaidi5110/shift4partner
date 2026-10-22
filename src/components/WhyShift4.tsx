@@ -69,37 +69,39 @@ export function WhyShift4() {
         </div>
 
         {/* 6 Benefit Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {benefits.map((item, index) => {
             const Icon = item.icon;
             return (
               <div
                 key={index}
-                className="group relative rounded-2xl bg-gradient-to-b from-[#0F2247]/80 to-[#0A1833]/90 border border-slate-700/60 p-6 sm:p-7 shadow-xl hover:border-brand-accent/60 hover:shadow-[0_10px_30px_rgba(30,107,255,0.25)] transition-all transform hover:-translate-y-1"
+                className="group relative rounded-2xl bg-gradient-to-b from-[#0F2247]/80 to-[#0A1833]/90 border border-slate-700/60 p-6 sm:p-7 shadow-xl hover:border-brand-accent/60 hover:shadow-[0_10px_30px_rgba(30,107,255,0.25)] transition-all transform hover:-translate-y-1 flex flex-col justify-between h-full"
               >
-                {/* Top row: Icon + Badge */}
-                <div className="flex items-center justify-between mb-5">
-                  <div className="h-12 w-12 rounded-xl bg-brand-blue/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all shadow-md">
-                    <Icon className="h-6 w-6" />
+                <div>
+                  {/* Top row: Icon + Badge */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="h-12 w-12 rounded-xl bg-brand-blue/20 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:scale-110 group-hover:bg-brand-blue group-hover:text-white transition-all shadow-md">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full border ${item.badgeColor}`}>
+                      {item.badge}
+                    </span>
                   </div>
-                  <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full border ${item.badgeColor}`}>
-                    {item.badge}
-                  </span>
-                </div>
 
-                <h3 className="text-xl font-bold text-white mb-2.5 tracking-tight group-hover:text-brand-accent transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-slate-300 leading-relaxed">
-                  {item.description}
-                </p>
+                  <h3 className="text-xl font-bold text-white mb-2.5 tracking-tight group-hover:text-brand-accent transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-slate-300 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             );
           })}
         </div>
 
         {/* Bottom Callout Bar */}
-        <div className="mt-14 rounded-2xl bg-gradient-to-r from-blue-900/40 via-brand-navy/60 to-blue-900/40 border border-blue-500/20 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div className="mt-12 sm:mt-14 rounded-2xl bg-gradient-to-r from-blue-900/40 via-brand-navy/60 to-blue-900/40 border border-blue-500/20 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div>
             <h4 className="text-lg font-bold text-white">
               Ready to eliminate monthly terminal rental from your overheads?
@@ -112,7 +114,7 @@ export function WhyShift4() {
           <Link
             href="/get-quote"
             onClick={() => trackCTAClick("Get My Free Quote", "WhyShift4 Callout")}
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:from-blue-600 hover:to-brand-blue transition-all flex-shrink-0"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:from-blue-600 hover:to-brand-blue transition-all w-full sm:w-auto min-h-[44px]"
           >
             <span>Get My Free Quote</span>
             <ArrowRight className="h-4 w-4" />

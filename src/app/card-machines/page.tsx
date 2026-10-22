@@ -25,7 +25,7 @@ export default function CardMachinesOverviewPage() {
           <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-blue/20 border border-brand-accent/30 px-3 py-1 rounded-full">
             UK PAYMENT TERMINALS
           </span>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight mt-4 mb-4">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mt-4 mb-4">
             Smart Card Machines for Every UK Business
           </h1>
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto mb-8">
@@ -34,7 +34,7 @@ export default function CardMachinesOverviewPage() {
 
           <Link
             href="/card-machines/shift4-one"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all"
+            className="w-full sm:w-auto min-h-[44px] inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-blue to-blue-600 px-7 py-3.5 text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:from-blue-600 hover:to-brand-blue transition-all"
           >
             <span>Explore Flagship Shift4 One Terminal</span>
             <ArrowRight className="h-4 w-4" />

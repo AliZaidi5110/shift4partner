@@ -23,11 +23,11 @@ export default function ComparePage() {
           <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-blue/20 border border-brand-accent/30 px-3 py-1 rounded-full">
             UK CARD MACHINE COMPARISON 2026
           </span>
-          <h1 className="text-4xl sm:text-5xl font-black tracking-tight mt-4 mb-4">
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mt-4 mb-4">
             Complete Card Machine Comparison UK <br />
             <span className="text-brand-accent">8 Providers Side-by-Side</span>
           </h1>
-          <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-300 max-w-3xl mx-auto">
             Compare Shift4 One, Square, Dojo, Zettle, SumUp, Worldpay, Barclaycard &amp; Takepayments. Find the cheapest card machine for your UK business with our transparent 2026 fee analysis.
           </p>
         </div>
